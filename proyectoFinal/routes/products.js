@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
-let homeController = require('../controllers/mainController')
+let productController = require('../controllers/productController')
+
 /* GET home page. */
-router.get('/product', homeController.show)
+router.get('/', productController.show)
+router.get('/product-add', productController.edit)
 
 module.exports = router;
