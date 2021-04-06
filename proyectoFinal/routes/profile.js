@@ -3,7 +3,7 @@ var router = express.Router();
 let userController = require('../controllers/userController')
 
 /* GET home page. */
-router.get('/', userController.register)
+router.get('/', userController.profile)
 
 
 module.exports = router;
