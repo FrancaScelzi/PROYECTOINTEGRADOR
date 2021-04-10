@@ -1,16 +1,15 @@
 /*====== Fonts ======*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
 /*====== Variables ======*/
 :root {
-  --wine:#540b0e;
+  --wine:#300317 ;
   --dark-blue: #03264C;
   --light-blue: #1259c3;
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
-  --base-font-family: 'Arapey', serif;
+  --base-font-family: 'Arapey', serif !important;
 }
 
 
@@ -42,7 +41,9 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
-  color: inherit;
+  text-decoration-line: none !important;
+  color: #ebe2c7 !important;
+
 }
 
 figure {
@@ -69,7 +70,6 @@ hr {
 .main-header {
   padding: 15px 0;
   background-color: var(--wine);
-  opacity: 76%;
 }
 
 .main-header_home-link,
