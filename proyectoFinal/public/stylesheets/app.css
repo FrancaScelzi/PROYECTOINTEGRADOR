@@ -1,6 +1,7 @@
 /*====== Fonts ======*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
 /*====== Variables ======*/
 :root {
   --wine:#300317 ;
@@ -9,7 +10,7 @@
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
-  --base-font-family: 'Arapey', serif !important;
+  --base-font-family: 'Poppins', san-serif !important;
 }
 
 
@@ -26,7 +27,7 @@ body {
 }
 
 body {
-  font-family: var(--base-font-family);
+  font-family: var(--base-font-family) ;
   font-weight: 300;
   background-color: var(--light-gray);
 }
@@ -38,12 +39,19 @@ ol {
   padding: 0;
 }
 
+.main-header a{
+    color: #ebe2c7 !important;
+  font-family: ;
+}
 a {
   display: inline-block;
   text-decoration: none;
   text-decoration-line: none !important;
-  color: #ebe2c7 !important;
-
+  color: var(--dark-blue)!important;
+font-family: var(--base-font-family) !important;
+}
+.main-header a:hover{
+  color: #ecd99f !important;
 }
 
 figure {
@@ -76,6 +84,11 @@ hr {
 .main-header_credit-link {
   display: block;
 }
+.main-header_home-link{
+  font-size: 2em;
+
+}
+
 
 .main-header_credit-link {
   font-size: 1.5em;
@@ -138,10 +151,11 @@ hr {
   border: 0px;
   cursor: pointer;
   font-size: 1em;
+  color:#ebe2c7;
 }
 
 .logout:hover{
-  color: #1259c3;
+  color: #e4d5a9;
 }
 
 .left-navbar a,
@@ -182,8 +196,9 @@ hr {
 }
 
 .products-title {
-  font-size: 2.4em;
-  font-weight: 400;
+  font-family: var(--base-font-family) !important;
+  font-size: 2.8em;
+  font-weight: 900;
   color: var(--gray);
 }
 
