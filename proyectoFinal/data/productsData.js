@@ -1,10 +1,60 @@
 // let vinos = [
 //     {
 //         name:'Ruttini',
-//         type:"Tinto",
+//         type: "Tinto",
 //         description:'',
-//         variety:"Malbec",
-//         year:2002,
-//     }
+//         variety: "Malbec",
+//         year: 2002,
+//     },
+//     {
+//         name:'Ruttini',
+//         type: "Tinto",
+//         description:'',
+//         variety: "Malbec",
+//         year: 2002,
+//     },
+//     {
+//         name:'Ruttini',
+//         type: "Tinto",
+//         description:'',
+//         variety: "Malbec",
+//         year: 2002,
+//     },
+//     {
+//         name:'Ruttini',
+//         type: "Tinto",
+//         description:'',
+//         variety: "Malbec",
+//         year: 2002,
+//     },
+//     {
+//         name:'Ruttini',
+//         type: "Tinto",
+//         description:'',
+//         variety: "Malbec",
+//         year: 2002,
+//     },
+//     {
+//         name:'Ruttini',
+//         type: "Tinto",
+//         description:'',
+//         variety: "Malbec",
+//         year: 2002,
+//     },
+//     {
+//         name:'Ruttini',
+//         type: "Tinto",
+//         description:'',
+//         variety: "Malbec",
+//         year: 2002,
+//     },
+//     {
+//         name:'Ruttini',
+//         type: "Tinto",
+//         description:'',
+//         variety: "Malbec",
+//         year: 2002,
+//     },
 // ]
-// module.exports == libros;
+
+// module.exports == vinos;
