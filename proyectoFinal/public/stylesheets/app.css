@@ -582,3 +582,24 @@ textarea.form-input {
 
 
 }
+
+.sesion{
+  font-family: var(--base-font-family);
+  color: var(--gold);
+  text-align: center;
+  font-size: 50px;
+
+  padding-top: 15%;
+}
+
+.iconoCheck{
+  color: var(--gold);
+
+  text-align: center;
+  font-size: 60px; 
+   padding-bottom: 15%;
+
+}
+.search-bar{
+  padding-top: 4%;
+}

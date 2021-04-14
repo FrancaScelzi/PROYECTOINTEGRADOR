@@ -1,7 +1,7 @@
 <!-- Header -->
 <header class="main-header">
     <div class="container">
-      <div class="row align-items-center ">
+      <div class="row  ">
         <div class="col-5 col-md-2">
           <a href="/" class="main-header_home-link">
             <img src="/images/logos/logo-nombre.png">
@@ -9,8 +9,8 @@
           </a>
         </div>
   
-        <div class="col-7 col-md-6">
-          <form action="/results" method="GET" class="search-form">
+        <div class="col-7 col-md-6 float-end ms-auto search-bar" align="center">
+          <form action="/product/results" method="GET" class="search-form">
             <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
             <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
           </form>
@@ -47,11 +47,11 @@
             </form>
           </li> -->
           <li>
-            <a href="/register">Creá tu cuenta <i class="far fa-address-card"></i>
+            <a href="/users/register">Creá tu cuenta <i class="far fa-address-card"></i>
             </a>
           </li>
           <li>
-            <a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
+            <a href="/users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
           </li>
         </ul>
       </nav>

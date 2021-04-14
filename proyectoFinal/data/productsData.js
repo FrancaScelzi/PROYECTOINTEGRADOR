@@ -1,7 +1,10 @@
-let libros = [
-    {
-        titulo:'Caidos del Mapa',
-        autor:'Maria Inés Falconi'
-    }
-]
-module.exports == libros;
+// let vinos = [
+//     {
+//         name:'Ruttini',
+//         type:"Tinto",
+//         description:'',
+//         variety:"Malbec",
+//         year:2002,
+//     }
+// ]
+// module.exports == libros;
