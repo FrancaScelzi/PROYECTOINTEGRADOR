@@ -1,8 +1,9 @@
 let products = require('../data/productsData');
 
 let controller = {
-    index:(req,res)=>   res.render('index', { title: 'The Union Winery' }),
+    index:(req,res)=>   res.render('index', { title: 'The Union Winery', productos:products }),
     
 } 
 
 module.exports = controller
+
