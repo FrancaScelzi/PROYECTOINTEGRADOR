@@ -5,23 +5,34 @@
 <%- include('./partials/head') %>
 
 <body>
-	<%- include('./partials/header') %>
-	
-	<!-- Novedades -->
+	<%- include('./partials/headerLogueado') %>
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
+				<h2 class="products-title">Agregar Producto</h2>
 			</div>
-			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para agregar prodcutos al catálogo. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2>
+		</div>	
+		</div>
+	<!-- Novedades -->
+	<div class="container">
+		<div class="row justify-content-md-center">
+				<form  class="register-form col-6" action="/" method="get">
+					<label for="">Nombre:</label>
+					<input type="text" name="name" placeholder="">
+					<label for="">Tipo:</label>
+					<input type="text" name="lastname" placeholder="">
+					<label for="">Descripción:</label>
+					<input type="text" name="document" placeholder="">
+					<label for="">Variedad:</label>
+					<input type="text" name="username" placeholder="">
+					<label for="">Año:</label>
+					<input type="number" name="birthday" placeholder="">
+					<label for="" >Imagen:</label>
+					<input type="file"  name="birthday" placeholder="">
+					<button type="submit" class="btn-outline-dark" onclick="alert('¡Tu cuenta ha sido creada con éxito!')">Enviar</button>
+				</form>
+		</div>
 	</div>
-</div>
 
 	
 	<!-- footer -->
