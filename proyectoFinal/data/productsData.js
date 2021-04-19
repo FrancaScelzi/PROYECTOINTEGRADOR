@@ -10,7 +10,7 @@ let vinos = [
     },
     {
         id: 2,
-        name:'Ruttini',
+        name:'Rutini',
         type: "Tinto",
         description:'Este tinto de color rojo violáceo muy profundo. Los intensos aromas frutados se presentan entremezclados con otros propios de la crianza en roble nuevo (vainilla, ahumados, tostados). En boca, su estructura concentrada deja la evocación de sus taninos suaves y sucrosos. Cosechado manualmente. Crianza en barril 12 meses. Tipo de roble 80% francés, nuevo; 20% americano, nuevo. Apto para guarda de unos 6 años. Decantar por espacio de una hora para su consumo. La temperatura adecuada para disfrutar este vino es entre 16º y 18º C. Este Malbec es ideal para combinarlo con carnes vacunas grilladas y horneadas, aves asadas, pastas con salsas cárnicas, pescados de río.',
         variety: "Malbec",

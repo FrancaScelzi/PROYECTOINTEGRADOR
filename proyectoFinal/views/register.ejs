@@ -10,25 +10,33 @@
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-2">
 				<h2 class="products-title">Registrate</h2>
 			</div>
+		</div>	
 		</div>
-			<!-- Show the "ultimos" products -->
-			<div class="container">
-				
-					<form  class="register-form" action="/login" method="get">
-						<label for="">Username:</label>
-						<input type="text" name="username" placeholder="alevivone13">
-						<label for="">Email</label>
-						<input type="email" name="email" placeholder="alevivone@udesa.com">
-						<label for="Contraseña:">Contraseña:</label>
-						<input type="password" name="password" placeholder="xxxxx">
-					</form>
-				
-			</div>
-		</div>
-	
+
+<div class="container">
+	<div class="row justify-content-md-center">
+			<form  class="register-form col-6" action="/" method="get">
+				<label for="">Nombre:</label>
+				<input type="text" name="name" placeholder="">
+				<label for="">Apellido:</label>
+				<input type="text" name="lastname" placeholder="">
+				<label for="">DNI:</label>
+				<input type="number" name="document" placeholder="">
+				<label for="">Username:</label>
+				<input type="text" name="username" placeholder="">
+				<label for="">Fecha de Nacimiento:</label>
+				<input type="date" name="birthday" placeholder="">
+				<label for="">Email</label>
+				<input type="email" name="email" placeholder="">
+				<label for="Contraseña:">Contraseña:</label>
+				<input type="password" name="password" placeholder="">
+				<button type="submit" class="btn-outline-dark" onclick="alert('¡Tu cuenta ha sido creada con éxito!')">Enviar</button>
+			</form>
+	</div>
+</div>
 
 	   <!-- footer -->
 	   <%- include('partials/footer') %>

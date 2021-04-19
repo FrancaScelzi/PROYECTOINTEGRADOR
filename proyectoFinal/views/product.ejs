@@ -6,10 +6,16 @@
 
 	<%- include('./partials/header') %>
 
+	<% for (let i = 0; i < products.length; i++) { %>
+		<%	const product = products[i]; %>
+		  
+	  
+		  <% if (product.id == id) { %>
+
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nombre del producto</h2> 
+			<h2 class="products-title"> <%= products[id-1].name %> </h2> 
 			<p class="product-detail-description">
 				<a href="/product/product-add">Editar</a>
 			</p>
@@ -20,11 +26,7 @@
 					
 					
 					
-					<% for (let i = 0; i < products.length; i++) { %>
-					  <%	const product = products[i]; %>
-						
 					
-						<% if (product.id == id) { %>
 					
 								
 					<img src= <%= products[id-1].img %> alt="" class="product-detail-img">
@@ -79,9 +81,9 @@
 						</article>
 
 					</section>
-					<form class="form" action="" method="POST">
+					<form class="form" action="/" method="POST">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="btn btn-primary ">AGREGAR COMENTARIO</button>
+						<button type="submit" class="btn-outline-dark" onclick="alert('¡Tu comentario ha sido enviado con éxito!')">AGREGAR COMENTARIO</button>
 					</form>
 					<hr>
 				</div>

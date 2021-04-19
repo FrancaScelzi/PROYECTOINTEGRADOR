@@ -291,6 +291,27 @@ hr {
 
 /*====== Footer ======*/
 
+.container-logo{
+  width: 100%;
+}
+
+.logo-social-media{
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.logo-social-media a{
+  border-radius: 50%;
+  width: fit-content;
+  height:fit-content;
+  font-size: 25px;
+  padding: 5px;
+  border-color: var(--gold);
+
+
+}
+
 .copyright {
   font-family: var(--base-font-family);
 color
@@ -298,7 +319,7 @@ color
 
 .main-footer {
   background-color: var(--darkgray);
-  padding: 20px 0;
+  padding: 5px 0;
   margin-top: 80px;
   font-family: var(--base-font-family);
 }
