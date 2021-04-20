@@ -484,6 +484,9 @@ hr {
   font-size: 1.7em;
 }
 
+.comments .user a{
+  text-transform: uppercase;
+}
 /*====== Formularios ======*/
 .form-label {
   display: inline-block;

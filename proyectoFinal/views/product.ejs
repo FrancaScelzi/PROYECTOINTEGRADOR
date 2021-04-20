@@ -38,15 +38,22 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
+						
+				<% for (let i = 0; i < users.length; i++) { %>
+					<%	const user = users[i]; %>
+					
+				
+					
 						<article>
-							<img src="/images/profilePicture/juanpablo.jpg" alt="">
+							<img src=<%= user.img%> alt="Imagen de <%= user.name %>">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/users">JUAN PABLO: </a> </strong>
-								 Súper recomendado</p>
+								<strong> <a href="/users/<%= user.id %>"> <%=user.name %> </a> </strong>
+								<%= user.comentario %></p>
 							</div>
 						</article>
-						<article>
+					<% } %>
+						<!-- <article>
 							<img src="/images/profilePicture/hector.jpg" alt="">
 							<div class="data">
 								<p class="user">
@@ -78,7 +85,7 @@
 									<strong> <a href="/users"> NICOLÁS: </a> </strong>
 									¡A mis hermanos y a mí nos encanta! Nos acompaña en todas las fiestas y reuniones familiares.</p>
 							</div>
-						</article>
+						</article> -->
 
 					</section>
 					<form class="form" action="/" method="GET">

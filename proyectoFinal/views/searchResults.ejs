@@ -17,6 +17,7 @@
 		  <!-- Show the "ultimos" products -->
    
 		  <% for (const product of products) { %>
+			<% if( product.name == result || product.name.toLowerCase() == result || product.name.toLowerCase().includes(result) || product.name.includes(result)){ %>
 		   <div class="col-12 col-sm-6 col-lg-3">
 			 <section class="product-box">
 			   <a href="/product/<%= product.id %> ">
@@ -31,9 +32,43 @@
 			   </a>
 			 </section>
 		   </div>
-		 <%}%>
+		 <%}}%>
+		 <% for (const product of products) { %>
+			<% if( product.type == result || product.type.toLowerCase() == result || product.type.toLowerCase().includes(result) || product.type.includes(result)){ %>
+		   <div class="col-12 col-sm-6 col-lg-3">
+			 <section class="product-box">
+			   <a href="/product/<%= product.id %> ">
+				 <figure class="product-box_image">
+				   <img src=<%=product.img %> alt=" <%= product.name %>">
+				 </figure>
+				 <article class="product-box_data">
+				   <h2><%= product.name %></h2>
+				   <p><%= product.type %> - <%= product.variety %>  </p>
+				   <p>Comentarios: 5</p>
+				 </article>
+			   </a>
+			 </section>
+		   </div>
+		 <%}}%>
+		 <% for (const product of products) { %>
+			<% if( product.variety == result || product.variety.toLowerCase() == result || product.variety.toLowerCase().includes(result) || product.variety.includes(result)){ %>
+		   <div class="col-12 col-sm-6 col-lg-3">
+			 <section class="product-box">
+			   <a href="/product/<%= product.id %> ">
+				 <figure class="product-box_image">
+				   <img src=<%=product.img %> alt=" <%= product.name %>">
+				 </figure>
+				 <article class="product-box_data">
+				   <h2><%= product.name %></h2>
+				   <p><%= product.type %> - <%= product.variety %>  </p>
+				   <p>Comentarios: 5</p>
+				 </article>
+			   </a>
+			 </section>
+		   </div>
+		 <%}}%>
 		</div >
-				 </div>
+	</div>
 
 
    <!-- footer -->
