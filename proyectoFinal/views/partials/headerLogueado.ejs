@@ -34,10 +34,16 @@
 	
 				<ul class="right-navbar">
 					<li><a href="/users">
-							Nombre del usuario <i class="fas fa-user"></i>
+						<% for (let i = 0; i < users.length; i++) { %>
+							<%	const user = users[i]; %>
+							  
+						  
+							  <% if (user.id == id) { %>
+							<%= user.name %> <i class="fas fa-user"></i>
 						</a>
 					</li>
 					<li>
+						<% }} %>
 						<!-- <form action="/users/logout" method="post">
 							<button class="logout" type="submit">
 								Cerrar sesión <i class="fas fa-sign-in-alt"></i>

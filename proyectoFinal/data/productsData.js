@@ -7,7 +7,7 @@ let vinos = [
         variety: "Malbec",
         year: 2021,
         img:"/images/products/img-luigi-bosca-malbec.jpg",
-        bodega:'Luigi Bosca'
+        bodega:"Luigi Bosca"
     },
     {
         id: 2,
@@ -17,7 +17,7 @@ let vinos = [
         variety: "Malbec",
         year: 2021,
         img:"/images/products/img-rutini-colección-malbec.jpg",
-        bodega:'Rutini'
+        bodega:"Rutini"
 
     },
     {
@@ -28,7 +28,7 @@ let vinos = [
         variety: "Malbec",
         year: 2014,
         img:"/images/products/img-salentein-reserve-malbec.jpg",
-        bodega:'Salentein'
+        bodega:"Salentein"
 
     },
     {
@@ -39,7 +39,7 @@ let vinos = [
         variety: "Cabernet Sauvignon",
         year: 2009,
         img:"/images/products/img-bressia-monteagrelo-cabernet-sauvignon.jpg",
-        bodega:'Bressia'
+        bodega:"Bressia"
 
     },
     {
@@ -50,7 +50,7 @@ let vinos = [
         variety: "Torrontes",
         year: 2021,
         img:"/images/products/img-bressia-sylvestra-torrontes.jpg",
-        bodega:'Bressia'
+        bodega:"Bressia"
 
     },
     {
@@ -61,7 +61,7 @@ let vinos = [
         variety: "Merlot",
         year: 2012,
         img:"/images/products/img-bressia-del-alma-merlot.jpg",
-        bodega:'Bressia'
+        bodega:"Bressia"
 
     },
     {
@@ -72,7 +72,7 @@ let vinos = [
         variety: "Malbec",
         year: 2001,
         img:"/images/products/img-angelica-zapata-malbec.jpg",
-        bodega:'Catena Zapata'
+        bodega:"Catena Zapata"
 
     },
     {
@@ -83,7 +83,7 @@ let vinos = [
         variety: "Canarí",
         year: 2021,
         img:"/images/products/img-callejon-de-las-brujas-canari.jpg",
-        bodega:'Callejon De Las Brujas'
+        bodega:"Callejon De Las Brujas"
 
     },
 ]
