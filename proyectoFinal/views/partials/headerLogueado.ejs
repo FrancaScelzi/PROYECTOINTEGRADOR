@@ -31,14 +31,14 @@
 					<li><a href="/">Todos los productos</a></li>
 					<li><a href="/product/product-add">Cargar productos</a></li>
 				</ul>
-	
-				<ul class="right-navbar">
-					<li><a href="/users">
-						<% for (let i = 0; i < users.length; i++) { %>
+					<% for (let i = 0; i < users.length; i++) { %>
 							<%	const user = users[i]; %>
-							  
+								  <% if (user.id == id) { %>  
+				<ul class="right-navbar">
+					<li><a href="/users/<%=id%>">
+						
 						  
-							  <% if (user.id == id) { %>
+						
 							<%= user.name %> <i class="fas fa-user"></i>
 						</a>
 					</li>
