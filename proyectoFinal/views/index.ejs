@@ -1,15 +1,4 @@
-<!-- <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
- -->
+
 
  <!DOCTYPE html>
  <html lang="es">
@@ -20,10 +9,7 @@
 
   <%- include('./partials/header') %>
 
-   <!-- Banner -->
-   <!-- <div class="banner"> -->
-    <!-- <img class='img-fluid' src="images/img-home-banner.jpg" alt="Banner de ofertas"> -->
-   <!-- </div> -->
+ 
 
    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -46,15 +32,13 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-   <!-- /Banner -->
- 
-   <!-- Novedades -->
+  
    <div class="container products-wrapper">
      <div class="row">
        <div class="col-12">
          <h2 class="products-title">Exclusivos</h2>
        </div>
-       <!-- Show the "ultimos" products -->
+    
       <% for (const product of productos) { %>
         <div class="col-12 col-sm-6 col-lg-3">
           <section class="product-box">
@@ -72,69 +56,10 @@
         </div>
       <%}%>
 
-       <!-- <div class="col-12 col-sm-6 col-lg-3">
-         <section class="product-box">
-           <a href="/product">
-             <figure class="product-box_image">
-               <img src="images/products/default-image.png" alt="cafetera moulinex">
-             </figure>
-             <article class="product-box_data">
-               <h2>Nombre del producto</h2>
-               <p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
-               <p>Comentarios: 12</p>
-             </article>
-           </a>
-         </section>
-       </div>
-       <div class="col-12 col-sm-6 col-lg-3">
-         <section class="product-box">
-           <a href="/product">
-             <figure class="product-box_image">
-               <img src="images/products/default-image.png" alt="cafetera moulinex">
-             </figure>
-             <article class="product-box_data">
-               <h2>Nombre del producto</h2>
-               <p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-                 delectus ex</p>
-               <p>Comentarios: 12</p>
-             </article>
-           </a>
-         </section>
-       </div>
-       <div class="col-12 col-sm-6 col-lg-3">
-         <section class="product-box">
-           <a href="/product">
-             <figure class="product-box_image">
-               <img src="images/products/default-image.png" alt="cafetera moulinex">
-             </figure>
-             <article class="product-box_data">
-               <h2>Nombre del producto</h2>
-               <p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-                 delectus ex</p>
-               <p>Comentarios: 12</p>
-             </article>
-           </a>
-         </section>
-       </div>
-       <div class="col-12 col-sm-6 col-lg-3">
-         <section class="product-box">
-           <a href="/product">
-             <figure class="product-box_image">
-               <img src="images/products/default-image.png" alt="cafetera moulinex">
-             </figure>
-             <article class="product-box_data">
-               <h2>Nombre del producto</h2>
-               <p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-                 delectus ex</p>
-               <p>Comentarios: 12</p>
-             </article>
-           </a>
-         </section>
-       </div> -->
+     
      </div>
    </div>
-   <!-- /Novedades -->
-   <!-- Más comentados -->
+   
    <div class="container products-wrapper">
      <div class="row">
        <div class="col-12">
@@ -160,65 +85,9 @@
       <%}%>
 
 
-       <!-- <div class="col-12 col-sm-6 col-lg-3">
-         <section class="product-box">
-           <a href="/product">
-             <figure class="product-box_image">
-               <img src="images/products/default-image.png" alt="cafetera moulinex">
-             </figure>
-             <article class="product-box_data">
-               <h2>Nombre del producto</h2>
-               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
-               <p>Comentarios: 12</p>
-             </article>
-           </a>
-         </section>
-       </div>
-       <div class="col-12 col-sm-6 col-lg-3">
-         <section class="product-box">
-           <a href="/product">
-             <figure class="product-box_image">
-               <img src="images/products/default-image.png" alt="cafetera moulinex">
-             </figure>
-             <article class="product-box_data">
-               <h2>Nombre del producto</h2>
-               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
-               <p>Comentarios: 12</p>
-             </article>
-           </a>
-         </section>
-       </div>
-       <div class="col-12 col-sm-6 col-lg-3">
-         <section class="product-box">
-           <a href="/product">
-             <figure class="product-box_image">
-               <img src="images/products/default-image.png" alt="cafetera moulinex">
-             </figure>
-             <article class="product-box_data">
-               <h2>Nombre del producto</h2>
-               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
-               <p>Comentarios: 12</p>
-             </article>
-           </a>
-         </section>
-       </div>
-       <div class="col-12 col-sm-6 col-lg-3">
-         <section class="product-box">
-           <a href="/product">
-             <figure class="product-box_image">
-               <img src="images/products/default-image.png" alt="cafetera moulinex">
-             </figure>
-             <article class="product-box_data">
-               <h2>Nombre del producto</h2>
-               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
-               <p>Comentarios: 12</p>
-             </article>
-           </a>
-         </section>
-       </div> -->
      </div>
    </div>
-   <!-- /Más comentados -->
+ 
  
  
    <!-- footer -->
