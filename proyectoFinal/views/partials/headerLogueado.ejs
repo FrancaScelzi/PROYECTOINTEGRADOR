@@ -6,14 +6,15 @@
 						<img src="/images/logos/logo-nombre-chico.png">
 					</a>
 				</div>
-	
+
 				<div class="col-7 col-md-6 float-end ms-auto search-bar">
 					<form action="/product/results" method="GET" class="search-form">
-						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
+						<input type="text" name="search" placeholder="Buscar productos, marcas y más"
+							class="search-form_input">
 						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
 					</form>
 				</div>
-<!-- 	
+				<!-- 	
 				<div class="col-12 col-md-4">
 					<a class="main-header_credit-link">
 						<i class="fas fa-hand-holding-usd"></i>
@@ -21,24 +22,24 @@
 					</a>
 				</div> -->
 			</div>
-	
+
 			<button class="btn-toggle-navbar">
 				<i class="fas fa-bars"></i>
 			</button>
-	
+
 			<nav class="main-navbar">
 				<ul class="left-navbar">
 					<li><a href="/">Todos los productos</a></li>
 					<li><a href="/product/product-add">Cargar productos</a></li>
 				</ul>
-					<% for (let i = 0; i < users.length; i++) { %>
-							<%	const user = users[i]; %>
-								  <% if (user.id == id) { %>  
+				<% for (let i = 0; i < users.length; i++) { %>
+				<%	const user = users[i]; %>
+				<% if (user.id == id) { %>
 				<ul class="right-navbar">
 					<li><a href="/users/<%=id%>">
-						
-						  
-						
+
+
+
 							<%= user.name %> <i class="fas fa-user"></i>
 						</a>
 					</li>

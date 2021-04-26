@@ -13,12 +13,12 @@
 			<div class="col-2">
 				<h2 class="products-title">Registrate</h2>
 			</div>
-		</div>	
 		</div>
+	</div>
 
-<div class="container">
-	<div class="row justify-content-md-center">
-			<form  class="register-form col-6" action="/" method="get">
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<form class="register-form col-6" action="/" method="get">
 				<label for="">Nombre:</label>
 				<input type="text" name="name" placeholder="">
 				<label for="">Apellido:</label>
@@ -33,14 +33,15 @@
 				<input type="email" name="email" placeholder="">
 				<label for="Contraseña:">Contraseña:</label>
 				<input type="password" name="password" placeholder="">
-				<button type="submit" class="btn-outline-dark" onclick="alert('¡Tu cuenta ha sido creada con éxito!')">Enviar</button>
+				<button type="submit" class="btn-outline-dark"
+					onclick="alert('¡Tu cuenta ha sido creada con éxito!')">Enviar</button>
 			</form>
+		</div>
 	</div>
-</div>
 
-	   <!-- footer -->
-	   <%- include('partials/footer') %>
-	   <!-- /footer -->
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
 </body>
 
 </html>

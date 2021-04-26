@@ -2,20 +2,21 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('./partials/head') %>
+
 <body>
 
 	<%- include('./partials/header') %>
 
 	<% for (let i = 0; i < products.length; i++) { %>
-		<%	const product = products[i]; %>
-		  
-	  
-		  <% if (product.id == id) { %>
+	<%	const product = products[i]; %>
+
+
+	<% if (product.id == id) { %>
 
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"> <%= products[id-1].name %> </h2> 
+			<h2 class="products-title"> <%= products[id-1].name %> </h2>
 			<p class="product-detail-description">
 				<a href="/product/product-add">Editar</a>
 			</p>
@@ -23,14 +24,14 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					
-					
-					
-					
-					
-								
-					<img src= <%= products[id-1].img %> alt="" class="product-detail-img">
-					
+
+
+
+
+
+
+					<img src=<%= products[id-1].img %> alt="" class="product-detail-img">
+
 					<p class="product-detail-description">
 						<%= products[id-1].description %>
 					</p>
@@ -38,27 +39,28 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						
-				<% for (let i = 0; i < users.length; i++) { %>
-					<%	const user = users[i]; %>
-					
-				
-					
+
+						<% for (let i = 0; i < users.length; i++) { %>
+						<%	const user = users[i]; %>
+
+
+
 						<article>
 							<img src=<%= user.img%> alt="Imagen de <%= user.name %>">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/users/<%= user.id %>"> <%=user.name %> </a> </strong>
-								<%= user.comentario %></p>
+									<strong> <a href="/users/<%= user.id %>"> <%=user.name %> </a> </strong>
+									<%= user.comentario %></p>
 							</div>
 						</article>
-					<% } %>
-						
+						<% } %>
+
 
 					</section>
 					<form class="form" action="/" method="GET">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="btn-outline-dark" onclick="alert('¡Tu comentario ha sido enviado con éxito!')">AGREGAR COMENTARIO</button>
+						<button type="submit" class="btn-outline-dark"
+							onclick="alert('¡Tu comentario ha sido enviado con éxito!')">AGREGAR COMENTARIO</button>
 					</form>
 					<hr>
 				</div>
@@ -67,9 +69,10 @@
 	</div>
 	<!-- /product detail -->
 
-   <!-- footer -->
-   <%- include('partials/footer') %>
-   <!-- /footer -->
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
 
-</body>	
+</body>
+
 </html>
