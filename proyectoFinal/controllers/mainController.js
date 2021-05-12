@@ -1,9 +1,19 @@
 let products = require('../data/productsData');
+const db = require('../database/models');
+// const op = db.Sequelize.Op
 
 let controller = {
-    index:(req,res)=>   res.render('index', { title: 'The Union Winery', productos:products }),
-    
-} 
+    index: function(req, res){
+        db.Product.findAll()
+            .then( data => {
+                return res.render('index', { productos: data , title: 'Home | The Union Winery'})
+            })
+            .catch(error =>{
+                console.log(error);
+            })
+    }   
+}
+
 
 module.exports = controller
 

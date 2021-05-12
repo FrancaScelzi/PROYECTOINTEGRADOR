@@ -1,4 +1,6 @@
-CREATE TABLE users (
+  CREATE SCHEMA winery_db;
+   
+   CREATE TABLE users (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 name VARCHAR(100) NOT NULL,
 lastname VARCHAR(100) NOT NULL,
@@ -52,12 +54,13 @@ VALUES
 (DEFAULT, 2, "Bressia Monteagrelo", "Tinto", "Bressia Monteagrelo fusiona el alma de cada varietal, su íntima relación con el origen y su profundo arraigo con un terroir único en el mundo: agrelo. Estos vinos son quilibrados pero intensos y seductores, cada uno de ellos impacta por su personalidad y estilo varietal. Presenta un color rojo intenso con tonalidades púrpuras propias del varietal. Perfecto equilibrio entre fruta y madera, muy pimentoso y especiado. Muy buen cuerpo, carnoso, con final de boca balanceado. Sin aristas, maduro y armónico.", "Cabernet Sauvignon", 2009, "imagen"),
 (DEFAULT, 3, "Bressia Sylvestra", "Blanco", "Color amarillo verdoso de buena intensidad y gran luminosidad Delicados aromas a durazno blanco, pomelo, ruda Muy fresco, frutal y cuerpo equilibrado. Muy armónico y de muy buena tipicidad varietal. Cosechado manualmente, tecnica de fermentación tradicional. No paso por barrica de roble.La temperatura adecuada para su degustacion es de 9º C. Es un vino apto para guarda de unos 2 años. Cuando el vino es joven, por su característica acidez, es perfecto para casi cualquier ensalada, o para platos con tomate, pimientos verdes,espárragos, o quesos como el feta o de cabra. También muy apropiado para el marisco o para pescados sabrosos. En general, el exceso de sal puede ser “apagado” por la acidez y la frescura de este vino. Para un aperitivo de anchoas en salazón y aceitunas, por ejemplo, un Torrontes puede ir a la perfección", "Torrontes", 2021, "imagen"),
 (DEFAULT, 4, "Bressia del Alma", "Tinto", "Vista: Tonos rojos de muy buena intensidad y matiz. De aspecto elegante y buena concentración Nariz: Muy buena expresión del varietal Merlot manifestando notas de trufas, guindas y moras como así también pimentosas y herbales potenciados por la presencia del Cabernet Franc. Acertado equilibrio entre la madera y la fruta. Boca: Su ingreso en boca es dulce, voluminoso y estructurado, revelando aromas de boca que recuerdan lo percibido en nariz.Armonía: Buen balance tánico que se manifesta con mucha elegancia y firmeza.", "Merlot", 2012, "imagen"),
-(DEFAULT, 6, "Este Rosado de la Bodega Cielo y Tierra está realizado en los Viñedos ubicados en Perdriel, Luján de Cuyo a 950 msnm. Color rojo cereza con intenso halo rubí. En nariz, toque de frutilla confitada, mermelada ciruelas y un persistente cherry. En boca tiene un gran equilibrio azucar-acidez, con cuerpo untuoso y voluminoso, con un fresco frutado.", "Canarí", 2021, "imagen");
+(DEFAULT, 6, "Callejón de las Brujas", "Rosado","Este Rosado de la Bodega Cielo y Tierra está realizado en los Viñedos ubicados en Perdriel, Luján de Cuyo a 950 msnm. Color rojo cereza con intenso halo rubí. En nariz, toque de frutilla confitada, mermelada ciruelas y un persistente cherry. En boca tiene un gran equilibrio azucar-acidez, con cuerpo untuoso y voluminoso, con un fresco frutado.", "Canarí", 2021, "imagen");
 
 INSERT INTO comments
 VALUES
-(DEFAULT, 1, 2, "Súper recomendado", "2021-04-12")
-(DEFAULT, 4, 4, "Especial para acompañar un asado en familia. Recomiendo guardarlo a 15°", "2021-03-11")
-(DEFAULT, 3, 3 , "¡Me encanta! Es de mis favoritos. Lo probé por primera vez en mi luna de miel <3", "2020-10-8")
-(DEFAULT, 7, 6, "Prefiero vinos más suaves. Sin embargo, no me digusta. Saludos desde el norte del país.", "2021-06-07")
-(DEFAULT, 1, 5, "¡A mis hermanos y a mí nos encanta! Nos acompaña en todas las fiestas y reuniones familiares.", "2021-08-10")
+(DEFAULT, 1, 2, "Súper recomendado", "2021-04-12"),
+(DEFAULT, 4, 4, "Especial para acompañar un asado en familia. Recomiendo guardarlo a 15°", "2021-03-11"),
+(DEFAULT, 3, 3 , "¡Me encanta! Es de mis favoritos. Lo probé por primera vez en mi luna de miel <3", "2020-10-8"),
+(DEFAULT, 7, 6, "Prefiero vinos más suaves. Sin embargo, no me digusta. Saludos desde el norte del país.", "2021-06-07"),
+(DEFAULT, 1, 5, "¡A mis hermanos y a mí nos encanta! Nos acompaña en todas las fiestas y reuniones familiares.", "2021-08-10");
+   
