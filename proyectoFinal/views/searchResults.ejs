@@ -12,78 +12,27 @@
 	<div class="container products-wrapper">
 		<div class="row">
 		  <div class="col-12">
-			<h2 class="products-title"> Resultados de <%= result %></h2>
+			<h2 class="products-title"> Resultados de <em>"<%= result %>"</em></h2>
 		  </div>
 		  <!-- Show the "ultimos" products -->
    
 		  <% for (const product of products) { %>
-			<% if( product.name == result || product.name.toLowerCase() == result || product.name.toLowerCase().includes(result) || product.name.includes(result)){ %>
-		   <div class="col-12 col-sm-6 col-lg-3">
-			 <section class="product-box">
-			   <a href="/product/<%= product.id %> ">
-				 <figure class="product-box_image">
-				   <img src=<%=product.img %> alt=" <%= product.name %>">
-				 </figure>
-				 <article class="product-box_data">
-				   <h2><%= product.name %></h2>
-				   <p><%= product.type %> - <%= product.variety %> - <%= product.bodega %> </p>
-				   <p>Comentarios: 5</p>
-				 </article>
-			   </a>
-			 </section>
-		   </div>
-		 <%}}%>
-		 <% for (const product of products) { %>
-			<% if( product.type == result || product.type.toLowerCase() == result || product.type.toLowerCase().includes(result) || product.type.includes(result)){ %>
-		   <div class="col-12 col-sm-6 col-lg-3">
-			 <section class="product-box">
-			   <a href="/product/<%= product.id %> ">
-				 <figure class="product-box_image">
-				   <img src=<%=product.img %> alt=" <%= product.name %>">
-				 </figure>
-				 <article class="product-box_data">
-				   <h2><%= product.name %></h2>
-				   <p><%= product.type %> - <%= product.variety %> - <%= product.bodega %>   </p>
-				   <p>Comentarios: 5</p>
-				 </article>
-			   </a>
-			 </section>
-		   </div>
-		 <%}}%>
-		 <% for (const product of products) { %>
-			<% if( product.variety == result || product.variety.toLowerCase() == result || product.variety.toLowerCase().includes(result) || product.variety.includes(result)){ %>
-		   <div class="col-12 col-sm-6 col-lg-3">
-			 <section class="product-box">
-			   <a href="/product/<%= product.id %> ">
-				 <figure class="product-box_image">
-				   <img src=<%=product.img %> alt=" <%= product.name %>">
-				 </figure>
-				 <article class="product-box_data">
-				   <h2><%= product.name %></h2>
-				   <p><%= product.type %> - <%= product.variety %> - <%= product.bodega %>   </p>
-				   <p>Comentarios: 5</p>
-				 </article>
-			   </a>
-			 </section>
-		   </div>
-		 <%}}%>
-		 <% for (const product of products) { %>
-			<% if( product.bodega == result || product.bodega.toLowerCase() == result || product.bodega.toLowerCase().includes(result) || product.bodega.includes(result)){ %>
-		   <div class="col-12 col-sm-6 col-lg-3">
-			 <section class="product-box">
-			   <a href="/product/<%= product.id %> ">
-				 <figure class="product-box_image">
-				   <img src=<%=product.img %> alt=" <%= product.name %>">
-				 </figure>
-				 <article class="product-box_data">
-				   <h2><%= product.name %></h2>
-				   <p><%= product.type %> - <%= product.variety %> - <%= product.bodega %>   </p>
-				   <p>Comentarios: 5</p>
-				 </article>
-			   </a>
-			 </section>
-		   </div>
-		 <%}}%>
+			<div class="col-12 col-sm-6 col-lg-3">
+			  <section class="product-box">
+				<a href="/product/<%= product.id %> ">
+				  <figure class="product-box_image">
+					<img src=<%=product.wineImage %> alt="">
+				  </figure>
+				  <article class="product-box_data">
+					<h2><%= product.wineName %></h2>
+					<p><%= product.wineType %> - <%= product.wineVariety %></p>
+					<p>Comentarios: 5</p>
+				  </article>
+				</a>
+			  </section>
+			</div>
+			<%}%>
+	
 		</div >
 	</div>
 

@@ -7,16 +7,12 @@
 
 	<%- include('./partials/header') %>
 
-	<% for (let i = 0; i < products.length; i++) { %>
-	<%	const product = products[i]; %>
-
-
-	<% if (product.id == id) { %>
+	
 
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"> <%= products[id-1].name %> </h2>
+			<h2 class="products-title"> <%= products.wineName %> </h2>
 			<p class="product-detail-description">
 				<a href="/product/product-add">Editar</a>
 			</p>
@@ -26,16 +22,12 @@
 				<article class="col-12 col-lg-8 product-detail-info">
 
 
-
-
-
-
-					<img src=<%= products[id-1].img %> alt="" class="product-detail-img">
+					<img src=<%= products.wineImage %> alt="" class="product-detail-img">
 
 					<p class="product-detail-description">
-						<%= products[id-1].description %>
+						<%= products.wineDescription %>
 					</p>
-					<% }} %>
+					
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">

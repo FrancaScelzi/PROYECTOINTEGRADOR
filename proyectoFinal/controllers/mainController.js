@@ -5,8 +5,8 @@ const db = require('../database/models');
 let controller = {
     index: function(req, res){
         db.Product.findAll()
-            .then( data => {
-                return res.render('index', { productos: data , title: 'Home | The Union Winery'})
+            .then( wines => {
+                return res.render('index', { productos: wines , title: 'Home | The Union Winery'})
             })
             .catch(error =>{
                 console.log(error);

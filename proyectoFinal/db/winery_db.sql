@@ -2,33 +2,33 @@
    
    CREATE TABLE users (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(100) NOT NULL,
-lastname VARCHAR(100) NOT NULL,
-document INT NOT NULL,
-username VARCHAR(100) NOT NULL,
-birthday DATE NOT NULL,
-email VARCHAR(150) NOT NULL,
-password VARCHAR (255) NOT NULL
+name VARCHAR(100) ,
+lastname VARCHAR(100) ,
+document INT ,
+username VARCHAR(100) ,
+birthday DATE ,
+email VARCHAR(150) ,
+password VARCHAR (255) 
 );
 
 CREATE TABLE products (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-userId INT UNSIGNED NOT NULL,
-wineName VARCHAR(100) NOT NULL,
-wineType VARCHAR (100) NOT NULL,
-wineDescription TEXT NOT NULL,
+userId INT UNSIGNED ,
+wineName VARCHAR(100) ,
+wineType VARCHAR (100) ,
+wineDescription TEXT ,
 wineVariety VARCHAR(100),
-wineYear SMALLINT NOT NULL,
-wineImage VARCHAR(255) NOT NULL,
+wineYear SMALLINT ,
+wineImage VARCHAR(255) ,
 
 FOREIGN KEY (userId) REFERENCES users(id)
 );
 
 CREATE TABLE comments(
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-productId INT UNSIGNED NOT NULL,
-userId INT UNSIGNED NOT NULL,
-textoComentario VARCHAR(255) NOT NULL,
+productId INT UNSIGNED ,
+userId INT UNSIGNED ,
+textoComentario VARCHAR(255) ,
 createdAt DATE,
 
 FOREIGN KEY (userId) REFERENCES users(id),
