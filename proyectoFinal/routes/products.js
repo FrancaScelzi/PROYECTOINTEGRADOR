@@ -6,7 +6,8 @@ let productController = require('../controllers/productController')
 router.get('/product-add', productController.create)
 router.post('/product-add', productController.store)
 router.get('/results', productController.search)
-router.get('/:id?', productController.show)
+router.get('/detail/:id?', productController.show)
+router.post('/delete/:id?', productController.destroy)
 
 
 module.exports = router;

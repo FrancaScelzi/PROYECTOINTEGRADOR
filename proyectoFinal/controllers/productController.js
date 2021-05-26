@@ -31,10 +31,16 @@ let controller = {
             where: {[op.or]:[
                 { wineName: {[op.like]: '%'+infoABuscar+'%'}},
                 { wineType: {[op.like]: '%'+infoABuscar+'%'}},
-
+                { wineYear: {[op.like]: '%'+infoABuscar+'%'}},
             ]}
         })
             .then( data => {
+                console.log(data);
+                if (data == null || data ==[] ||data.length == 0) {
+                    console.log('No hay resultados');
+                    return res.render('searchResults',{ title: 'Resultados | The Union Winery', products: data, result:infoABuscar, respuesta:'No se encontraron resultados para '});
+
+                }
                 return res.render('searchResults',{ title: 'Resultados | The Union Winery', products: data, result:infoABuscar});
             })
             .catch( error => {
@@ -77,6 +83,25 @@ let controller = {
                 console.log(error);
             })
     },
+
+    destroy: function(req, res){
+
+        let vinoBorrar = req.params.id;
+        
+        console.log('adsfasfddfafasdfadfadf');
+        
+        db.Product.destroy({
+            where: [
+                {id : vinoBorrar}
+            ]
+        })
+            .then( () => {
+                 return res.redirect('/');
+            })
+            .catch( error => { 
+                console.log(error);
+            })
+    }
 } 
 
 module.exports = controller

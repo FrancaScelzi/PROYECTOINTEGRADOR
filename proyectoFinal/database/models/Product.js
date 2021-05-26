@@ -29,7 +29,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.STRING,
         },
         wineYear: {
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER,
         },
         wineImage: {
             type: dataTypes.STRING

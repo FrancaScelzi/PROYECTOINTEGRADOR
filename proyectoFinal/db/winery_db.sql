@@ -1,6 +1,6 @@
   CREATE SCHEMA winery_db;
    
-   CREATE TABLE users (
+CREATE TABLE users (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 name VARCHAR(100) ,
 lastname VARCHAR(100) ,
@@ -8,7 +8,8 @@ document INT ,
 username VARCHAR(100) ,
 birthday DATE ,
 email VARCHAR(150) ,
-password VARCHAR (255) 
+password VARCHAR (255) ,
+img VARCHAR(255) 
 );
 
 CREATE TABLE products (

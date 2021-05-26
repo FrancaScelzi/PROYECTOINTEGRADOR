@@ -17,7 +17,7 @@ let loginController = {
             console.log('en login controller');
             console.log(req.session.user);
 
-            //Si tildó recordame => creamos la cookie.
+            // Si tildó recordame => creamos la cookie.
             if(req.body.rememberme != undefined){
                 res.cookie('userId', user.id, { maxAge: 1000 * 60 * 5})
             }
@@ -30,7 +30,7 @@ let loginController = {
     },
     logout: function(req,res){
         //Destruir la sessión
-        req.session.destroy();
+            req.session.destroy();
 
         //Destruir la cookie
          res.clearCookie('userId');

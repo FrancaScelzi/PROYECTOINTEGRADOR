@@ -40,14 +40,14 @@
       <% for (const product of productos) { %>
       <div class="col-12 col-sm-6 col-lg-3">
         <section class="product-box">
-          <a href="/product/<%= product.id %> ">
+          <a href="/product/detail/<%= product.id %> ">
             <figure class="product-box_image">
               <img src=<%=product.wineImage %> alt="">
             </figure>
             <article class="product-box_data">
               <h2><%= product.wineName %></h2>
               <p><%= product.wineType %> - <%= product.wineVariety %></p>
-              <p>Comentarios: 5</p>
+              <p><%= product.wineYear %>  </p>
             </article>
           </a>
         </section>
@@ -68,14 +68,14 @@
        <% for (const product of productos) { %>
       <div class="col-12 col-sm-6 col-lg-3">
         <section class="product-box">
-          <a href="/product/<%= product.id %> ">
+          <a href="/product/detail/<%= product.id %> ">
             <figure class="product-box_image">
               <img src=<%=product.wineImage %> alt="">
             </figure>
             <article class="product-box_data">
               <h2><%= product.wineName %></h2>
               <p><%= product.wineType %> - <%= product.wineVariety %></p>
-              <p>Comentarios: 5</p>
+              <p><%= product.wineYear %>  </p>
             </article>
           </a>
         </section>

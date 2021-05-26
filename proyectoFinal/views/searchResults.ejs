@@ -1,45 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
-<%- include('./partials/head') %>
+  <!-- Include Head -->
+  <%- include('./partials/head') %>
 
+  <body>
+    <%- include('./partials/header') %>
 
-<body>
-	<%- include('./partials/header') %>
+    <!-- Novedades -->
 
-	<!-- Novedades -->
+    <div class="container products-wrapper">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="products-title">Resultados de <em>"<%= result %>"</em></h2>
+        </div>
+        <!-- Show the "ultimos" products -->
+        <h2><%= respuesta %> '<%= result %>'</h2>
+        <% for (const product of products) { %>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <section class="product-box">
+            <a href="/product/detail/<%= product.id %> ">
+              <figure class="product-box_image">
+                <img src="<%" ="product.wineImage" % /> alt="">
+              </figure>
+              <article class="product-box_data">
+                <h2><%= product.wineName %></h2>
+                <p><%= product.wineType %> - <%= product.wineVariety %></p>
+                <p>Comentarios: 5</p>
+              </article>
+            </a>
+          </section>
+        </div>
+        <%}%>
+      </div>
+    </div>
 
-	<div class="container products-wrapper">
-		<div class="row">
-		  <div class="col-12">
-			<h2 class="products-title"> Resultados de <em>"<%= result %>"</em></h2>
-		  </div>
-		  <!-- Show the "ultimos" products -->
-   
-		  <% for (const product of products) { %>
-			<div class="col-12 col-sm-6 col-lg-3">
-			  <section class="product-box">
-				<a href="/product/<%= product.id %> ">
-				  <figure class="product-box_image">
-					<img src=<%=product.wineImage %> alt="">
-				  </figure>
-				  <article class="product-box_data">
-					<h2><%= product.wineName %></h2>
-					<p><%= product.wineType %> - <%= product.wineVariety %></p>
-					<p>Comentarios: 5</p>
-				  </article>
-				</a>
-			  </section>
-			</div>
-			<%}%>
-	
-		</div >
-	</div>
-
-
-   <!-- footer -->
-   <%- include('partials/footer') %>
-   <!-- /footer -->
-</body>
-
+    <!-- footer -->
+    <%- include('partials/footer') %>
+    <!-- /footer -->
+  </body>
 </html>
