@@ -1,6 +1,6 @@
-  CREATE SCHEMA winery_db;
+CREATE SCHEMA winery_db;
    
-CREATE TABLE users (
+   CREATE TABLE users (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 name VARCHAR(100) ,
 lastname VARCHAR(100) ,
@@ -38,12 +38,12 @@ FOREIGN KEY (productId) REFERENCES products(id)
 
 INSERT INTO users 
 VALUES
-(DEFAULT, "Rosario", "Gutiérrez", "39840222", "RoGutiérrez", "1994-04-12", "rogut@gmail.com", "RoLaMasCapa94"),
-(DEFAULT, "Juan Pablo", "Lopez", "42351192", "JPLopez", "2001-05-06", "juanpl@gmail.com", "MeGustaElVinito"),
-(DEFAULT, "Roxana", "Dismar", "26994599", "Roxanita123", "1980-07-10", "roxanadismar@gmail.com", "AmoAMisGatos"),
-(DEFAULT, "Héctor", "Aguirre", "6439944", "Hector123", "1952-08-03", "hectoraguirre@yahoo.com", "misnietos123"),
-(DEFAULT, "Nicolas", "Ruiz", "43992413" , "NicoRiver_PL" , "12-03-02", "nicoravioles@outlook.com.ar", "gallardoPasion"),
-(DEFAULT, "Valeria", "Presas", "24202693", "valeritapresas", "1983-10-10", "presasvaleria@hotmail.com", "bocaelmasgrande");
+(DEFAULT, "Rosario", "Gutiérrez", "39840222", "RoGutiérrez", "1994-04-12", "rogut@gmail.com", "RoLaMasCapa94", "/images/profilePicture/roxana.jpg"),
+(DEFAULT, "Juan Pablo", "Lopez", "42351192", "JPLopez", "2001-05-06", "juanpl@gmail.com", "MeGustaElVinito", "/images/profilePicture/juanpablo.jpg"),
+(DEFAULT, "Roxana", "Dismar", "26994599", "Roxanita123", "1980-07-10", "roxanadismar@gmail.com", "AmoAMisGatos", "/images/profilePicture/roxana.jpg"),
+(DEFAULT, "Héctor", "Aguirre", "6439944", "Hector123", "1952-08-03", "hectoraguirre@yahoo.com", "misnietos123", "/images/profilePicture/hector.jpg"),
+(DEFAULT, "Nicolas", "Ruiz", "43992413" , "NicoRiver_PL" , "12-03-02", "nicoravioles@outlook.com.ar", "gallardoPasion","/images/profilePicture/nicolas.jpg"),
+(DEFAULT, "Valeria", "Presas", "24202693", "valeritapresas", "1983-10-10", "presasvaleria@hotmail.com", "bocaelmasgrande","/images/profilePicture/valeria.jpg");
 
 
 INSERT INTO products
@@ -64,4 +64,3 @@ VALUES
 (DEFAULT, 3, 3 , "¡Me encanta! Es de mis favoritos. Lo probé por primera vez en mi luna de miel <3", "2020-10-8"),
 (DEFAULT, 7, 6, "Prefiero vinos más suaves. Sin embargo, no me digusta. Saludos desde el norte del país.", "2021-06-07"),
 (DEFAULT, 1, 5, "¡A mis hermanos y a mí nos encanta! Nos acompaña en todas las fiestas y reuniones familiares.", "2021-08-10");
-   
