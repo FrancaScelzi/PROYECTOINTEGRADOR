@@ -33,13 +33,19 @@ module.exports = function(sequelize, dataTypes){
         },
         img: {
             type: dataTypes.STRING
-        }
+        },
+        created_at:{
+            type: dataTypes.DATE,
+        },
+        updated_at:{
+            type: dataTypes.DATE,
+        },
     }
 
     let config = {
         tableName: 'users', 
-        timestamps: false, //Si la tabla no tiene los campos created_at y updated_at
-        underscored: false, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.        
+        timestamps: true, //Si la tabla no tiene los campos created_at y updated_at
+        underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.        
     }
 
    const User = sequelize.define(alias, cols, config);

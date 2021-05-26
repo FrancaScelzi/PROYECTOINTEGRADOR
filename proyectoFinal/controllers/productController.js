@@ -72,6 +72,7 @@ let controller = {
             wineVariety: data.wineVariety,
             wineYear: data.wineYear,
             wineImage: data.wineImage
+            
         }
         //3)Guardar Vino
         db.Product.create(wine)

@@ -13,13 +13,16 @@ module.exports = function(sequelize, dataTypes){
         productId:{
             type: dataTypes.INTEGER,
         },
-        userName:{
+        userId:{
             type: dataTypes.INTEGER,
         },
         textoComentario:{
             type: dataTypes.STRING,
         },
-        createdAt:{
+        created_at:{
+            type: dataTypes.DATE,
+        },
+        updated_at:{
             type: dataTypes.DATE,
         },
     
@@ -28,7 +31,7 @@ module.exports = function(sequelize, dataTypes){
     let config = {
         tableName: 'comments', 
         timestamps: true, //Si la tabla no tiene los campos created_at y updated_at
-        underscored: false, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.        
+        underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.        
     }
 
    const Comment = sequelize.define(alias, cols, config);
