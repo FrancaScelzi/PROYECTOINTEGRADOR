@@ -35,8 +35,18 @@ app.use(session({
 app.use(function (req, res, next) {
   // console.log('En session middleware');
   // console.log(req.session.user);
-  if(req.session.user != undefined){
-    res.locals = req.session.user;
+  if (req.session.name) {
+    res.locals = {
+      name: req.session.name,
+      lastname: req.session.lastname,
+      id: req.session.cosa,
+      log: true,
+    }
+  } else {
+    res.locals = {
+      log: false,
+
+    }
     // console.log("entre en locals: ");
     // console.log(res.locals);
   }
