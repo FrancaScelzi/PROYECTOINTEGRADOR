@@ -15,8 +15,8 @@ let registerController = {
            username: req.body.username,
            birthday: req.body.birthday,
            email: req.body.email,
-           img: req.body.userImage,
            password: bcrypt.hashSync(req.body.password, 10), 
+           img: req.body.userImage
        }
        
        users.create(user)

@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session'); //Instalamos session.
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -21,6 +23,59 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session(
+  { secret:'Hola',
+    resave: false,
+    saveUninitialized: true }
+));
+
+// Antes de las rutas. Dejar disponible datos de sessión para todas las vistas
+app.use(function(req, res, next){
+  // console.log('En session middleware');
+  // console.log(req.session.user);
+  if(req.session.user != undefined){
+    res.locals = req.session.user;
+    // console.log("entre en locals: ");
+    // console.log(res.locals);
+    return next();
+  } 
+  return next(); //Clave para que el proceso siga adelante.  
+})
+
+//Gestionar la coockie.
+app.use(function(req, res, next){
+  //Solo quiero hacerlo si tengo una coockie
+  if(req.cookies.user_id != undefined && req.session.user == undefined){
+    let idDeLaCookie = req.cookies.user_id;
+    
+    db.User.findByPk(idDeLaCookie)
+    .then( user => {
+      // console.log('en cookie middleware trasladando');
+      req.session.user = user; //Estamos poniendo en session a toda la instancia del modelo. Debería ser solo user.dataValues.
+      // console.log('en cookie middleware');
+      // console.log(req.session.user);
+      res.locals = user; //Se corrije si usamos user.dataValues
+      return next();
+    })
+    .catch( e => {console.log(e)})
+  } else {
+    //Si no tengo cookie quiero que el programa continue
+    return next();
+  }
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

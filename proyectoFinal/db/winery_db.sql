@@ -16,30 +16,31 @@ updated_at DATE
 
 CREATE TABLE products (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-userId INT UNSIGNED ,
-wineName VARCHAR(100) ,
-wineType VARCHAR (100) ,
-wineDescription TEXT ,
-wineVariety VARCHAR(100),
-wineYear SMALLINT ,
-wineImage VARCHAR(255) ,
+user_id INT UNSIGNED ,
+wine_name VARCHAR(100) ,
+wine_type VARCHAR (100) ,
+wine_description TEXT ,
+wine_variety VARCHAR(100),
+wine_year SMALLINT ,
+wine_image VARCHAR(255) ,
 created_at DATE,
 updated_at DATE,
 
-FOREIGN KEY (userId) REFERENCES users(id)
+FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 CREATE TABLE comments(
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-productId INT UNSIGNED ,
-userId INT UNSIGNED ,
-textoComentario VARCHAR(255) ,
+product_id INT UNSIGNED ,
+user_id INT UNSIGNED ,
+texto_comentario VARCHAR(255) ,
 created_at DATE,
 updated_at DATE,
 
-FOREIGN KEY (userId) REFERENCES users(id),
-FOREIGN KEY (productId) REFERENCES products(id)
+FOREIGN KEY (user_id) REFERENCES users(id),
+FOREIGN KEY (product_id) REFERENCES products(id)
 );
+
 
 INSERT INTO users 
 VALUES
@@ -47,7 +48,7 @@ VALUES
 (DEFAULT, "Juan Pablo", "Lopez", "42351192", "JPLopez", "2001-05-06", "juanpl@gmail.com", "MeGustaElVinito", "/images/profilePicture/juanpablo.jpg", DEFAULT, DEFAULT),
 (DEFAULT, "Roxana", "Dismar", "26994599", "Roxanita123", "1980-07-10", "roxanadismar@gmail.com", "AmoAMisGatos", "/images/profilePicture/roxana.jpg", DEFAULT, DEFAULT),
 (DEFAULT, "Héctor", "Aguirre", "6439944", "Hector123", "1952-08-03", "hectoraguirre@yahoo.com", "misnietos123", "/images/profilePicture/hector.jpg", DEFAULT, DEFAULT),
-(DEFAULT, "Nicolas", "Ruiz", "43992413" , "NicoRiver_PL" , "12-03-02", "nicoravioles@outlook.com.ar", "gallardoPasion","/images/profilePicture/nicolas.jpg", DEFAULT, DEFAULT),
+(DEFAULT, "Nicolas", "Ruiz", "43992413" , "NicoRiver_PL" , "12-03-02", "nicoravioles@outlook.com.ar", "gallardoPasion","/images/profilePicture/nicolas.jpg", DEFAULT, DEFAULT ),
 (DEFAULT, "Valeria", "Presas", "24202693", "valeritapresas", "1983-10-10", "presasvaleria@hotmail.com", "bocaelmasgrande","/images/profilePicture/valeria.jpg", DEFAULT, DEFAULT);
 
 
@@ -64,8 +65,8 @@ VALUES
 
 INSERT INTO comments
 VALUES
-(DEFAULT, 1, 2, "Súper recomendado", DEFAULT, DEFAULT),
+(DEFAULT, 1, 2, "Súper recomendado", DEFAULT, DEFAULT ),
 (DEFAULT, 4, 4, "Especial para acompañar un asado en familia. Recomiendo guardarlo a 15°", DEFAULT, DEFAULT),
-(DEFAULT, 3, 3 , "¡Me encanta! Es de mis favoritos. Lo probé por primera vez en mi luna de miel <3", DEFAULT, DEFAULT),
+(DEFAULT, 3, 3 , "¡Me encanta! Es de mis favoritos. Lo probé por primera vez en mi luna de miel <3", DEFAULT, DEFAULT ),
 (DEFAULT, 7, 6, "Prefiero vinos más suaves. Sin embargo, no me digusta. Saludos desde el norte del país.", DEFAULT, DEFAULT),
 (DEFAULT, 1, 5, "¡A mis hermanos y a mí nos encanta! Nos acompaña en todas las fiestas y reuniones familiares.", DEFAULT, DEFAULT);

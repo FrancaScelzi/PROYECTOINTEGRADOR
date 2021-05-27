@@ -10,13 +10,13 @@ module.exports = function(sequelize, dataTypes){
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
-        productId:{
+        product_id:{
             type: dataTypes.INTEGER,
         },
-        userId:{
+        user_id:{
             type: dataTypes.INTEGER,
         },
-        textoComentario:{
+        texto_comentario:{
             type: dataTypes.STRING,
         },
         created_at:{
@@ -24,7 +24,7 @@ module.exports = function(sequelize, dataTypes){
         },
         updated_at:{
             type: dataTypes.DATE,
-        },
+        }
     
     }
 

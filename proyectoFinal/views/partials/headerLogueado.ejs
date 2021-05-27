@@ -32,19 +32,15 @@
 					<li><a href="/">Todos los productos</a></li>
 					<li><a href="/product/product-add">Cargar productos</a></li>
 				</ul>
-				<% for (let i = 0; i < users.length; i++) { %>
-				<%	const user = users[i]; %>
-				<% if (user.id == id) { %>
+				
 				<ul class="right-navbar">
-					<li><a href="/users/<%=id%>">
-
-
-
-							<%= user.name %> <i class="fas fa-user"></i>
+					<li><a href="/users/<%=locals.id%>">
+						<%= locals.name %>
+						<%= locals.lastname %>
+						 <i class="fas fa-user"></i>
 						</a>
 					</li>
 					<li>
-						<% }} %>
 						<!-- <form action="/users/logout" method="post">
 							<button class="logout" type="submit">
 								Cerrar sesión <i class="fas fa-sign-in-alt"></i>

@@ -4,7 +4,12 @@ const db = require('../database/models');
 
 let controller = {
     index: function(req, res){
-        db.Product.findAll()
+        db.Product.findAll({
+            order: [
+                ['wine_year', 'ASC']
+            ],
+            limit: 10,
+         })
             .then( wines => {
                 return res.render('index', { productos: wines , title: 'Home | The Union Winery'})
             })

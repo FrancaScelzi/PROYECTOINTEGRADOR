@@ -10,33 +10,33 @@ module.exports = function(sequelize, dataTypes){
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
-        userId:{
+        user_id:{
             type: dataTypes.INTEGER,
         },
-        wineName:{
+        wine_name:{
             type: dataTypes.STRING,
         },
-        wineType:{
+        wine_type:{
             type: dataTypes.STRING,
         },
-        wineDescription:{
+        wine_description:{
             type: dataTypes.STRING,
         },
-        wineVariety:{
+        wine_variety:{
             type: dataTypes.STRING,
         },
-        wineYear: {
+        wine_year: {
             type: dataTypes.INTEGER,
         },
-        wineImage: {
-            type: dataTypes.STRING
+        wine_image: {
+            type: dataTypes.STRING,
         },
         created_at:{
             type: dataTypes.DATE,
         },
         updated_at:{
             type: dataTypes.DATE,
-        },
+        }
     }
 
     let config = {

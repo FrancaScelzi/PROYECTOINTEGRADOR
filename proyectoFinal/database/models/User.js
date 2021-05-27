@@ -32,7 +32,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.STRING,
         },
         img: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
         },
         created_at:{
             type: dataTypes.DATE,

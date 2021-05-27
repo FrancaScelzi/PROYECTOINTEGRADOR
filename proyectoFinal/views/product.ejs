@@ -12,7 +12,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"> <%= products.wineName %> </h2>
+			<h2 class="products-title"> <%= products.wine_name %> </h2>
 			<p class="product-detail-description">
 				<a href="/product/product-add">Editar</a>
 			</p>
@@ -22,10 +22,10 @@
 				<article class="col-12 col-lg-8 product-detail-info">
 
 
-					<img src=<%= products.wineImage %> alt="" class="product-detail-img">
+					<img src=<%= products.wine_image %> alt="" class="product-detail-img">
 
 					<p class="product-detail-description">
-						<%= products.wineDescription %>
+						<%= products.wine_description %>
 					</p>
 					
 				</article>
@@ -42,7 +42,7 @@
 							<div class="data">
 								<p class="user">
 									<strong> <a href="/users/<%= user.id %>"> <%=user.name %> </a> </strong>
-									<%= user.comentario %></p>
+										<%= user.comentario %></p>
 							</div>
 						</article>
 						<% } %>
