@@ -4,9 +4,12 @@
 <%- include('./partials/head') %>
 
 <body>
-
-	<%- include('./partials/header') %>
-
+	<% if( log ){ %>
+		<%- include('./partials/headerLogueado.ejs') %>
+		<%} else { %>
+		<%- include('./partials/header.ejs') %>
+	  
+		<% } %>
 	
 
 	<!-- product detail -->
@@ -42,7 +45,7 @@
 							<div class="data">
 								<p class="user">
 									<strong> <a href="/users/<%= user.id %>"> <%=user.name %> </a> </strong>
-										<%= user.comentario %></p>
+										<%= user.texto_comentario %></p>
 							</div>
 						</article>
 						<% } %>

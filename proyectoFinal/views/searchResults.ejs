@@ -4,8 +4,12 @@
   <%- include('./partials/head') %>
 
   <body>
-    <%- include('./partials/header') %>
-
+    <% if( log ){ %>
+      <%- include('./partials/headerLogueado.ejs') %>
+      <%} else { %>
+      <%- include('./partials/header.ejs') %>
+    
+      <% } %>
     <!-- Novedades -->
 
     <div class="container products-wrapper">

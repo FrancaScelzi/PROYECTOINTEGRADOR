@@ -20,44 +20,47 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session(
-  { secret:'Hola',
-    resave: false,
-    saveUninitialized: true }
-));
+app.use(session({
+  secret: 'Hola',
+  resave: false,
+  saveUninitialized: true
+}));
 
 // Antes de las rutas. Dejar disponible datos de sessión para todas las vistas
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
   // console.log('En session middleware');
   // console.log(req.session.user);
   if(req.session.user != undefined){
     res.locals = req.session.user;
     // console.log("entre en locals: ");
     // console.log(res.locals);
-    return next();
-  } 
+  }
   return next(); //Clave para que el proceso siga adelante.  
 })
 
 //Gestionar la coockie.
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
   //Solo quiero hacerlo si tengo una coockie
-  if(req.cookies.user_id != undefined && req.session.user == undefined){
+  if (req.cookies.user_id != undefined && req.session.user == undefined) {
     let idDeLaCookie = req.cookies.user_id;
-    
+
     db.User.findByPk(idDeLaCookie)
-    .then( user => {
-      // console.log('en cookie middleware trasladando');
-      req.session.user = user; //Estamos poniendo en session a toda la instancia del modelo. Debería ser solo user.dataValues.
-      // console.log('en cookie middleware');
-      // console.log(req.session.user);
-      res.locals = user; //Se corrije si usamos user.dataValues
-      return next();
-    })
-    .catch( e => {console.log(e)})
+      .then(user => {
+        // console.log('en cookie middleware trasladando');
+        req.session.user = user; //Estamos poniendo en session a toda la instancia del modelo. Debería ser solo user.dataValues.
+        // console.log('en cookie middleware');
+        // console.log(req.session.user);
+        res.locals = user; //Se corrije si usamos user.dataValues
+        return next();
+      })
+      .catch(e => {
+        console.log(e)
+      })
   } else {
     //Si no tengo cookie quiero que el programa continue
     return next();
@@ -84,12 +87,12 @@ app.use('/register', registerRouter);
 app.use('/login', loginRouter)
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -100,4 +103,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-

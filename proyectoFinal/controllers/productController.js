@@ -11,7 +11,7 @@ let controller = {
 
         db.Product.findByPk(id)
             .then(data =>{
-                console.log(data);
+                console.log(users);
                 return res.render('product', { products: data, users:users, title:'Productos | The Union Winery'});
             })
             .catch(error =>{

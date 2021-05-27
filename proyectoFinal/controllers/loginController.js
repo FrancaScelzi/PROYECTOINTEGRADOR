@@ -13,15 +13,20 @@ let loginController = {
             where: [{email: req.body.email}]
         })
         .then( user => {
-            req.session.user = user;
             console.log('en login controller');
             console.log(req.session.user);
-
-            // Si tildó recordame => creamos la cookie.
-            if(req.body.rememberme != undefined){
-                res.cookie('userId', user.id, { maxAge: 1000 * 60 * 5})
+            
+            if (bcrypt.compareSync(req.body.password, user.password)) {
+                
+                req.session.name = user.name;
+                req.session.lastname = user.lastname;
+                req.session.cosa = user.id;
+                if(req.body.rememberme != undefined){
+                    res.cookie('userId', user.id, { maxAge: 1000 * 60 * 5})
+                }
             }
-
+            // Si tildó recordame => creamos la cookie.
+           
             return res.redirect('/');
             
         })
