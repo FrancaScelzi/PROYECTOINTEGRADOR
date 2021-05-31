@@ -9,8 +9,13 @@ let controller = {
                 ['wine_year', 'ASC']
             ],
             limit: 10,
+            include: [
+                {association: 'user'}
+            ]
          })
-            .then( wines => {
+            
+         .then( wines => {
+                console.log(wines)
                 return res.render('index', { productos: wines , title: 'Home | The Union Winery'})
             })
             .catch(error =>{

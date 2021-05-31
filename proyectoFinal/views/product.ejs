@@ -35,16 +35,16 @@
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 
-						<% for (let i = 0; i < users.length; i++) { %>
-						<%	const user = users[i]; %>
+						<% for (let i = 0; i < products.comment.length; i++) { %>
+						<%	const user = products.comment[i]; %>
 
 
 
 						<article>
-							<img src=<%= user.img%> alt="Imagen de <%= user.name %>">
+							<!-- <img src=<%= user.img%> alt="Imagen de <%= user.name %>"> -->
 							<div class="data">
 								<p class="user">
-									<strong> <a href="/users/<%= user.id %>"> <%=user.name %> </a> </strong>
+									<strong> <a href="/users/<%= user.user_id %>"> Usuario:  </a> </strong>
 										<%= user.texto_comentario %></p>
 							</div>
 						</article>

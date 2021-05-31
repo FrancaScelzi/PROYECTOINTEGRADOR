@@ -9,9 +9,16 @@ let controller = {
     show:(req,res)=>{   
         let id = req.params.id;
 
-        db.Product.findByPk(id)
+        db.Product.findByPk(id, {include: [
+            {association:'comment'}, //relacion comentario producto
+            {association: 'user' } // relacion comentario usuario
+            
+        ]})
             .then(data =>{
-                console.log(users);
+                console.log(data);
+                
+                // return res.send(data)
+            
                 return res.render('product', { products: data, users:users, title:'Productos | The Union Winery'});
             })
             .catch(error =>{
@@ -29,10 +36,11 @@ let controller = {
             //SELECT * FROM movies
             //WHERE title LIKE "%potter%"
             where: {[op.or]:[
-                { wineName: {[op.like]: '%'+infoABuscar+'%'}},
-                { wineType: {[op.like]: '%'+infoABuscar+'%'}},
-                { wineYear: {[op.like]: '%'+infoABuscar+'%'}},
-            ]}
+                { wine_name: {[op.like]: '%'+infoABuscar+'%'}},
+                { wine_type: {[op.like]: '%'+infoABuscar+'%'}},
+                { wine_year: {[op.like]: '%'+infoABuscar+'%'}},
+            ]},
+            
         })
             .then( data => {
                 console.log(data);
@@ -41,7 +49,7 @@ let controller = {
                     return res.render('searchResults',{ title: 'Resultados | The Union Winery', products: data, result:infoABuscar, respuesta:'No se encontraron resultados para '});
 
                 }
-                return res.render('searchResults',{ title: 'Resultados | The Union Winery', products: data, result:infoABuscar});
+                return res.render('searchResults',{ title: 'Resultados | The Union Winery', products: data, result:infoABuscar, respuesta: ''});
             })
             .catch( error => {
                 console.log(error);

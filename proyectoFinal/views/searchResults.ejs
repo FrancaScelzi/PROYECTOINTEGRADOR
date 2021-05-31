@@ -18,22 +18,23 @@
           <h2 class="products-title">Resultados de <em>"<%= result %>"</em></h2>
         </div>
         <!-- Show the "ultimos" products -->
-        <h2><%= respuesta %> '<%= result %>'</h2>
+        <h2 style='color:red'><%= respuesta %> '<%= result %>'</h2>
         <% for (const product of products) { %>
-        <div class="col-12 col-sm-6 col-lg-3">
-          <section class="product-box">
-            <a href="/product/detail/<%= product.id %> ">
-              <figure class="product-box_image">
-                <img src="<%" ="product.wineImage" % /> alt="">
-              </figure>
-              <article class="product-box_data">
-                <h2><%= product.wineName %></h2>
-                <p><%= product.wineType %> - <%= product.wineVariety %></p>
-                <p>Comentarios: 5</p>
-              </article>
-            </a>
-          </section>
-        </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <section class="product-box">
+              <a href="/product/detail/<%= product.id %> ">
+                <figure class="product-box_image">
+                  <img src=<%=product.wine_image %> alt="">
+                </figure>
+                <article class="product-box_data">
+                  <h2><%= product.wine_name %></h2>
+                  <p><%= product.wine_type %> - <%= product.wine_variety %></p>
+                  <p><%= product.wine_year %> </p>
+                  <p><a href='/users/<%= product.user.id %> '>Añadido por <%= product.user.name + ' ' + product.user.lastname%> </a></p>
+                </article>
+              </a>
+            </section>
+          </div>
         <%}%>
       </div>
     </div>
