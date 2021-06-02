@@ -15,7 +15,7 @@ let controller = {
          })
             
          .then( wines => {
-                console.log(wines)
+                // console.log(wines)
                 return res.render('index', { productos: wines , title: 'Home | The Union Winery'})
             })
             .catch(error =>{

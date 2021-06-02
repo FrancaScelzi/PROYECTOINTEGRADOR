@@ -42,7 +42,7 @@ module.exports = function(sequelize, dataTypes){
            foreignKey: 'product_id'
        });
        Comment.belongsTo(models.User, {
-        as: 'user',
+        as: 'userComment',
         foreignKey: 'user_id'
     })
 

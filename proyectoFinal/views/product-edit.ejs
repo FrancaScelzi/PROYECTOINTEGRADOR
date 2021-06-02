@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+
+<%- include('./partials/head') %>
+
+<body>
+	<%- include('./partials/header') %>
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Editar Producto</h2>
+			</div>
+		</div>
+	</div>
+	<!-- Novedades -->
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<form class="register-form col-6" action="/product/product-edit" method="POST">
+				<label for="">Nombre:</label>
+				<input type="text" name="wineName" placeholder="">
+				<label for="">Tipo:</label>
+				<input type="text" name="wineType" placeholder="">
+				<label for="">Descripción:</label>
+				<input type="text" name="wineDescription" placeholder="">
+				<label for="">Variedad:</label>
+				<input type="text" name="wineVariety" placeholder="">
+				<label for="">Año:</label>
+				<input type="number" name="wineYear" placeholder="">
+				<label for="">Imagen:</label>
+				<input type="file" name="wineImage" placeholder="">
+				<button type="submit" class="btn-outline-dark">Enviar</button>
+			</form>
+		</div>
+	</div>
+
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+
+</body>
+
+</html>

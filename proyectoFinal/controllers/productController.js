@@ -11,7 +11,8 @@ let controller = {
 
         db.Product.findByPk(id, {include: [
             {association:'comment'}, //relacion comentario producto
-            {association: 'user' } // relacion comentario usuario
+            // {association: 'userComment'}, // relacion comentario usuario
+            {association: 'user' }, // relacion producto comentario
             
         ]})
             .then(data =>{
@@ -25,9 +26,34 @@ let controller = {
                 console.log(error);
             })
     
-    
     },
-    // edit:(req,res)=>    res.render('product-add', {title: 'Editar | The Union Winery', products: products, id: req.params.id , users:users}),
+
+    edit:(req,res)=>    res.render('product-edit', {title: 'Editar | The Union Winery', products: products, id: req.params.id , users:users}),
+
+    editForm: (req,res) => {
+        
+        let data = req.body;
+        
+        //2)Crear vino nueva.
+        let wine = {
+            wineName: data.wineName,            
+            wineType: data.rating,
+            wineDescription: data.wineDescription,
+            wineVariety: data.wineVariety,
+            wineYear: data.wineYear,
+            wineImage: data.wineImage
+            
+        }
+        //3)Guardar Vino
+        db.Product.update(wine)
+            .then( (wineCreado) => {
+        //4)Redirección
+                return res.redirect('/product/detail/'+ wineCreado.id);
+            })
+            .catch(error => {
+                console.log(error);
+            })},
+    
     search:(req,res)=>{
        
         let infoABuscar = req.query.search; //obtengo la info de la querystring.
@@ -67,6 +93,7 @@ let controller = {
             
            
     },
+
     store: function(req, res){
         //Método para guardar nuevo Vino.
         //1) Obtener datos del formulario

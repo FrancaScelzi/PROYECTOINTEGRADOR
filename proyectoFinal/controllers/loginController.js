@@ -18,16 +18,17 @@ let loginController = {
             
             if (bcrypt.compareSync(req.body.password, user.password)) {
                 
-                req.session.name = user.name;
-                req.session.lastname = user.lastname;
-                req.session.cosa = user.id;
+                req.session.user = user;
+
+                // return res.send(req.session.user)
+                
                 if(req.body.rememberme != undefined){
                     res.cookie('userId', user.id, { maxAge: 1000 * 60 * 5})
                 }
             }
             // Si tildó recordame => creamos la cookie.
-           
             return res.redirect('/');
+           
             
         })
         .catch( e => {console.log(e)})

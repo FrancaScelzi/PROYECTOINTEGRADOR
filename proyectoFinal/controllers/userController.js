@@ -31,9 +31,13 @@ let controller = {
         id: req.params.id,
         users: users
     }),
-    logout: (req, res) => res.render('logout', {
-        title: 'Logout | The Union Winery'
-    }),
+    
+    destroy: (req, res) => {
+        req.session.destroy()
+        res.clearCookie('userId')
+
+        return res.redirect('/')
+    }
 
 }
 

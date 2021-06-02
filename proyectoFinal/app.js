@@ -33,22 +33,22 @@ app.use(session({
 
 // Antes de las rutas. Dejar disponible datos de sessión para todas las vistas
 app.use(function (req, res, next) {
-  // console.log('En session middleware');
-  // console.log(req.session.user);
-  if (req.session.name) {
-    res.locals = {
-      name: req.session.name,
-      lastname: req.session.lastname,
-      id: req.session.cosa,
+  console.log('En session middleware');
+  console.log(req.session.user);
+  if (req.session.user) {
+    res.locals.user = {
+      name: req.session.user.name,
+      lastname: req.session.user.lastname,
+      id: req.session.user.id,
       log: true,
     }
   } else {
-    res.locals = {
+    res.locals.user = {
       log: false,
 
     }
-    // console.log("entre en locals: ");
-    // console.log(res.locals);
+    console.log("entre en locals: ");
+    console.log(res.locals.user);
   }
   return next(); //Clave para que el proceso siga adelante.  
 })
@@ -61,11 +61,11 @@ app.use(function (req, res, next) {
 
     db.User.findByPk(idDeLaCookie)
       .then(user => {
-        // console.log('en cookie middleware trasladando');
+        console.log('en cookie middleware trasladando');
         req.session.user = user; //Estamos poniendo en session a toda la instancia del modelo. Debería ser solo user.dataValues.
-        // console.log('en cookie middleware');
-        // console.log(req.session.user);
-        res.locals = user; //Se corrije si usamos user.dataValues
+        console.log('en cookie middleware');
+        console.log(req.session.user);
+        res.locals.user = user; //Se corrije si usamos user.dataValues
         return next();
       })
       .catch(e => {
