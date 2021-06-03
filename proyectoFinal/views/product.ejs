@@ -41,10 +41,10 @@
 
 
 						<article>
-							<!-- <img src=<%= user.img%> alt="Imagen de <%= user.name %>"> -->
+							<img src=<%= user.user.img%> alt="Imagen de <%= user.user.name %>">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="/users/<%= user.user_id %>"> Usuario:  </a> </strong>
+									<strong> <a href="/users/<%= user.user_id %>"><%= user.user.name %>  </a> </strong>
 										<%= user.texto_comentario %></p>
 							</div>
 						</article>

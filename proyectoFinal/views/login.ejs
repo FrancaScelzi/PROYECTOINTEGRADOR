@@ -14,6 +14,11 @@
 			<div class="col-2">
 				<h2 class="products-title">Ingresar</h2>
 			</div>
+			<% if(locals.errors){ %>
+				<h2 style="color:red">
+					<%= locals.errors.message %>
+				</h2>
+				<% } %>
 		</div>
 	</div>
 	<div class="container">

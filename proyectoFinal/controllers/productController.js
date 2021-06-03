@@ -10,7 +10,9 @@ let controller = {
         let id = req.params.id;
 
         db.Product.findByPk(id, {include: [
-            {association:'comment'}, //relacion comentario producto
+            {association:'comment' ,
+            include:{ association: 'user'
+        }}, //relacion comentario producto
             // {association: 'userComment'}, // relacion comentario usuario
             {association: 'user' }, // relacion producto comentario
             
@@ -19,7 +21,7 @@ let controller = {
                 console.log(data);
                 
                 // return res.send(data)
-            
+                
                 return res.render('product', { products: data, users:users, title:'Productos | The Union Winery'});
             })
             .catch(error =>{
