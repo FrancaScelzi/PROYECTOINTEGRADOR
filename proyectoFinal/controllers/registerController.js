@@ -45,7 +45,7 @@ let registerController = {
                             birthday: req.body.birthday,
                             email: req.body.email,
                             password: bcrypt.hashSync(req.body.password, 10),
-                            img: req.body.userImage
+                            img: req.file.filename
                         }
                         creada.message = 'Tu cuenta fue creada con exito'
                         res.locals.creada = creada

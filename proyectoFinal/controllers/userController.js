@@ -9,17 +9,19 @@ let controller = {
     profile: (req, res) => {
 
 
-        db.User.findByPk(req.params.id)
-            .then(user => {
+        db.User.findByPk(req.params.id, {
 
-                db.Product.findAll()
-                    .then(products => {
-                        res.render('profile', {
-                            title: 'Perfil | The Union Winery',
-                            usuario: user,
-                            productos: products
-                        })
-                    })
+                include: [{
+                    association: 'products'
+                }]
+            })
+            .then(user => {
+                // res.send(user)
+                res.render('profile', {
+                    title: 'Perfil | The Union Winery',
+                    usuario: user,
+                })
+
             })
             .catch(error => {
                 console.log(error);
@@ -31,7 +33,7 @@ let controller = {
         id: req.params.id,
         users: users
     }),
-    
+
     destroy: (req, res) => {
         req.session.destroy()
         res.clearCookie('userId')

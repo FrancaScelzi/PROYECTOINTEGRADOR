@@ -99,16 +99,18 @@ let controller = {
     store: function(req, res){
         //Método para guardar nuevo Vino.
         //1) Obtener datos del formulario
+       
         let data = req.body;
         
         //2)Crear vino nueva.
         let wine = {
-            wineName: data.wineName,            
-            wineType: data.rating,
-            wineDescription: data.wineDescription,
-            wineVariety: data.wineVariety,
-            wineYear: data.wineYear,
-            wineImage: data.wineImage
+            wine_name: data.wineName,            
+            wine_type: data.wineType,
+            wine_description: data.wineDescription,
+            wine_variety: data.wineVariety,
+            wine_year: data.wineYear,
+            wine_image: req.file.filename,
+            user_id: res.locals.user.id
             
         }
         //3)Guardar Vino
