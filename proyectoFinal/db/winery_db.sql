@@ -44,12 +44,12 @@ FOREIGN KEY (product_id) REFERENCES products(id)
 
 INSERT INTO users 
 VALUES
-(DEFAULT, "Rosario", "Gutiérrez", "39840222", "RoGutiérrez", "1994-04-12", "rogut@gmail.com", "RoLaMasCapa94", "roxana.jpg", DEFAULT, DEFAULT),
-(DEFAULT, "Juan Pablo", "Lopez", "42351192", "JPLopez", "2001-05-06", "juanpl@gmail.com", "MeGustaElVinito", "juanpablo.jpg", DEFAULT, DEFAULT),
-(DEFAULT, "Roxana", "Dismar", "26994599", "Roxanita123", "1980-07-10", "roxanadismar@gmail.com", "AmoAMisGatos", "roxana.jpg", DEFAULT, DEFAULT),
-(DEFAULT, "Héctor", "Aguirre", "6439944", "Hector123", "1952-08-03", "hectoraguirre@yahoo.com", "misnietos123", "hector.jpg", DEFAULT, DEFAULT),
-(DEFAULT, "Nicolas", "Ruiz", "43992413" , "NicoRiver_PL" , "12-03-02", "nicoravioles@outlook.com.ar", "gallardoPasion","nicolas.jpg", DEFAULT, DEFAULT ),
-(DEFAULT, "Valeria", "Presas", "24202693", "valeritapresas", "1983-10-10", "presasvaleria@hotmail.com", "bocaelmasgrande","valeria.jpg", DEFAULT, DEFAULT),
+(DEFAULT, "Rosario", "Gutiérrez", "39840222", "RoGutiérrez", "1994-04-12", "rosariogut@gmail.com", "$2a$10$sNYsvrzqbKNETXmsmVp9LuPSi6fqzqjCyBOutHcWdZoX9CVb4lY3u", "rosario.jpg", DEFAULT, DEFAULT),
+(DEFAULT, "Juan Pablo", "Lopez", "42351192", "JPLopez", "2001-05-06", "jplopez@gmail.com", "$2a$10$sNYsvrzqbKNETXmsmVp9LuPSi6fqzqjCyBOutHcWdZoX9CVb4lY3u", "juanpablo.jpg", DEFAULT, DEFAULT),
+(DEFAULT, "Roxana", "Dismar", "26994599", "Roxanita123", "1980-07-10", "roxanadismar@gmail.com", "$2a$10$sNYsvrzqbKNETXmsmVp9LuPSi6fqzqjCyBOutHcWdZoX9CVb4lY3u", "roxana.jpg", DEFAULT, DEFAULT),
+(DEFAULT, "Héctor", "Aguirre", "6439944", "Hector123", "1952-08-03", "hectoraguirre@gmail.com", "$2a$10$sNYsvrzqbKNETXmsmVp9LuPSi6fqzqjCyBOutHcWdZoX9CVb4lY3u", "hector.jpg", DEFAULT, DEFAULT),
+(DEFAULT, "Nicolas", "Ruiz", "43992413" , "NicoRiver_PL" , "12-03-02", "nicolasruiz@gmail.com.ar", "$2a$10$sNYsvrzqbKNETXmsmVp9LuPSi6fqzqjCyBOutHcWdZoX9CVb4lY3u","nicolas.jpg", DEFAULT, DEFAULT ),
+(DEFAULT, "Valeria", "Presas", "24202693", "valeritapresas", "1983-10-10", "valeriapresas@gmail.com", "$2a$10$sNYsvrzqbKNETXmsmVp9LuPSi6fqzqjCyBOutHcWdZoX9CVb4lY3u","valeria.jpg", DEFAULT, DEFAULT),
 (DEFAULT, "admin", "admin", "43992412", "admin", "2002-05-03", "admin@gmail.com", "$2a$10$XAyVJO8j5Gac0KtWun6zXOcvh8/7GFj8rFJGYrGR2DCfLFk8GFeb.","userImage-1623073213136.jpg", DEFAULT, DEFAULT);
 
 
