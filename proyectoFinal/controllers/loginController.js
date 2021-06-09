@@ -5,7 +5,14 @@ const op = db.Sequelize.Op;
 
 let loginController = {
     
-    index:(req,res)=>   res.render('login', { title: 'Ingresá | The Union Winery' }),
+    index:(req,res) =>  {
+        if(req.session.user != undefined ){
+            return res.redirect('/')
+        } else {  
+            return res.render('login', { title: 'Ingresá | The Union Winery' })
+        }
+    },
+    
 
     login: function(req, res){
         // Buscar el usuario que se quiere loguear.
@@ -13,11 +20,19 @@ let loginController = {
             where: [{email: req.body.email}]
         })
         .then( user => {
-            console.log('en login controller');
-            console.log(req.session.user);
-            
-            if (bcrypt.compareSync(req.body.password, user.password)) {
-                
+           
+            let errors = {};
+
+            // ¿Está el mail en la base de datos?
+            if (user == null){
+                errors.message = 'El email no existe'
+                res.locals.errors = errors
+                return res.render('login', {title: 'Login | The Union Winery'});
+            } else if (bcrypt.compareSync(req.body.password, user.password) == false) {
+                errors.message= 'La contraseña es incorrecta'
+                res.locals.errors =errors
+                return res.render('login', {title: 'Login | The Union Winery'})
+            } else {
                 req.session.user = user;
 
                 // return res.send(req.session.user)
@@ -25,15 +40,16 @@ let loginController = {
                 if(req.body.rememberme != undefined){
                     res.cookie('userId', user.id, { maxAge: 1000 * 60 * 5})
                 }
-            }
-            // Si tildó recordame => creamos la cookie.
-            return res.redirect('/');
            
-            
+                // Si tildó recordame => creamos la cookie.
+                return res.redirect('/');
+            } 
         })
+
         .catch( e => {console.log(e)})
 
     },
+
     logout: function(req,res){
         //Destruir la sessión
             req.session.destroy();

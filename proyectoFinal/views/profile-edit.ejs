@@ -20,16 +20,16 @@
 
 	<div class="container">
 		<div class="row justify-content-md-center">
-			<form class="register-form col-6" action="/" method="get">
+			<form class="register-form col-6" action="/" method="POST" enctype="multipart/form-data" >
 
 
 				<label for="">Username:</label>
-				<input type="text" name="username" placeholder="">
+				<input type="text" name="username" placeholder="" value="<%= user.username %>">
 				<label for="">Foto de Perfil:</label>
-				<input type="file" name="username" placeholder="">
+				<input type="file" name="imagen" placeholder="">
 
 				<label for="">Email</label>
-				<input type="email" name="email" placeholder="">
+				<input type="email" name="email" placeholder="" value="<%= user.email %>" >
 				<label for="Contraseña:">Contraseña:</label>
 				<input type="password" name="password" placeholder="">
 				<button type="submit" class="btn-outline-dark"

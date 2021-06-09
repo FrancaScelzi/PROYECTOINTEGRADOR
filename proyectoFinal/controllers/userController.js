@@ -28,11 +28,72 @@ let controller = {
             })
 
     },
-    edit: (req, res) => res.render('profile-edit', {
-        title: 'Editar Perfil | The Union Winery',
-        id: req.params.id,
-        users: users
-    }),
+    edit: (req, res) => {
+        // Mostrar el formulario de edición
+
+        let userId = req.params.id;
+
+
+        // Evitar que el usuario cambie el id en la url
+        if (userId != req.session.user.id) {
+            // Redireccionar a la ruta del usuario logueado
+            return res.redirect(`/users/edit/${req.session.user.id}`)
+        } else {
+            // Recuperar los datos del usuario y pasarlo al form de edición
+            db.User.findByPk(userId)
+                .then(function (user) {
+                    return res.render('profile-edit', {
+                        userEdit: user,
+                        title: 'Editar Perfil | The Union Winery'
+                    })
+                })
+                .catch(e => {
+                    console.log(e)
+                })
+        }
+        
+    },
+
+
+    update: function (req, res) {
+        // Vamos a actualizar un usuario
+
+        let user = {
+            username: req.body.username,
+            email: req.body.email,
+            password: '',
+            imagen: '',
+        }
+
+        // Tenemos que pensar cómo completar password y avatar
+        if (req.body.password == '') {
+            user.paswword = req.session.user.password;
+        } else {
+            user.password = bcrypt.hashSync(req.body.password, 10);
+        }
+        if (req.file == undefined) {
+            user.imagen = req.session.user.imagen;
+        } else {
+            user.imagen = req.file.filename;
+        }
+
+        db.User.update(user, {
+                where: {
+                    id: req.session.user.id
+                }
+            })
+
+            .then(function (id) {
+                // Actualizar los datos de session y redirecciona a la home
+                user.id = req.session.user.id;
+                req.session.user = user;
+                return res.redirect('/')
+            })
+
+            .catch(e => {
+                console.log(e)
+            })
+    },
 
     destroy: (req, res) => {
         req.session.destroy()
