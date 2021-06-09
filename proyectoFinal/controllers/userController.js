@@ -60,9 +60,9 @@ let controller = {
 
         let user = {
             username: req.body.username,
+            userImage: '',
             email: req.body.email,
             password: '',
-            imagen: '',
         }
 
         // Tenemos que pensar cómo completar password y avatar
@@ -72,7 +72,7 @@ let controller = {
             user.password = bcrypt.hashSync(req.body.password, 10);
         }
         if (req.file == undefined) {
-            user.imagen = req.session.user.imagen;
+            user.UserImage = req.session.user.userImage;
         } else {
             user.imagen = req.file.filename;
         }
