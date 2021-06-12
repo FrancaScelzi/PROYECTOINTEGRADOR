@@ -19,8 +19,6 @@ var storage = multer.diskStorage({
 
 router.get('/edit/:id', userController.edit);
 router.post('/edit', upload.single('userImage'), userController.update)
-// router.get('/login', userController.login);
-// router.get('/register', userController.register);
 router.post('/logout', userController.destroy);
 router.get('/:id', userController.profile);
 module.exports = router;

@@ -17,7 +17,11 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"> <%= products.wine_name %> </h2>
 			<p class="product-detail-description">
+				<% if (user.id== products.user_id) { %>
 				<a href="/product/product-edit/<%= products.id %> ">Editar</a>
+				<a href="/product/destroy/<%= products.id %> "><i class="fa fa-trash" aria-hidden="true"></i>
+				</a>
+				<% } %>
 			</p>
 		</div>
 		<div class="product-detail">

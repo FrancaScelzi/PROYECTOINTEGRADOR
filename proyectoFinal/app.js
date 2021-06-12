@@ -33,8 +33,6 @@ app.use(session({
 
 // Antes de las rutas. Dejar disponible datos de sessión para todas las vistas
 app.use(function (req, res, next) {
-  console.log('En session middleware');
-  console.log(req.session.user);
   if (req.session.user) {
     res.locals.user = {
       name: req.session.user.name,
@@ -47,7 +45,6 @@ app.use(function (req, res, next) {
       log: false,
 
     }
-    console.log("entre en locals: ");
     console.log(res.locals.user);
   }
   return next(); //Clave para que el proceso siga adelante.  
