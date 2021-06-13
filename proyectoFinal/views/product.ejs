@@ -19,8 +19,10 @@
 			<p class="product-detail-description">
 				<% if (user.id== products.user_id) { %>
 				<a href="/product/product-edit/<%= products.id %> ">Editar</a>
-				<a href="/product/destroy/<%= products.id %> "><i class="fa fa-trash" aria-hidden="true"></i>
-				</a>
+				<form action="/product/delete/<%= products.id %>" method="POST">
+					<button type="submit"> <i class="fa fa-trash" aria-hidden="true"></i></button>
+				</form>
+				
 				<% } %>
 			</p>
 		</div>
