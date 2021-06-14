@@ -60,7 +60,6 @@ let controller = {
 
     editForm: (req, res) => {
 
-
         let data = req.body;
 
         //2)Crear vino nueva.
@@ -75,10 +74,12 @@ let controller = {
         }
         //3)Guardar Vino
         db.Product.update(wine , {
-            where: { id: req.body.id}
+            where: { id: data.id}
         })
-            .then(() => {
+            .then(function(productUpdated){
                 //4)Redirección
+                console.log(productUpdated)
+                
                 return res.redirect('/')
             })
             .catch(error => {

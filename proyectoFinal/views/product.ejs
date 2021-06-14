@@ -20,7 +20,7 @@
 				<% if (user.id== products.user_id) { %>
 				<a href="/product/product-edit/<%= products.id %> ">Editar</a>
 				<form action="/product/delete/<%= products.id %>" method="POST">
-					<button type="submit"> <i class="fa fa-trash" aria-hidden="true"></i></button>
+					<button type="submit" class="btn btn-outline-light"> <i class="fas fa-trash" style="color: #B99871;"></i></button>
 				</form>
 				
 				<% } %>
@@ -65,7 +65,7 @@
 						<input name="comment" class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<input name="idUser" type="hidden" value="<%= user.id  %> ">
 						<input name="idProduct" type="hidden" value="<%= products.id  %> ">
-						<button type="submit" class="btn-outline-dark"
+						<button type="submit" class="btn btn-outline-dark"
 							onclick="alert('¡Tu comentario ha sido enviado con éxito!')">AGREGAR COMENTARIO</button>
 					</form>
 					<hr>
