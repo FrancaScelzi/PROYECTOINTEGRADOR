@@ -9,7 +9,6 @@
   <%- include('./partials/headerLogueado.ejs') %>
   <%} else { %>
   <%- include('./partials/header.ejs') %>
-
   <% } %>
 
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -37,7 +36,7 @@
   <div class="container products-wrapper">
     <div class="row">
       <div class="col-12">
-        <h2 class="products-title">Exclusivos</h2>
+        <h2 class="products-title">Novedades</h2>
       </div>
 
       <% for (const product of productos) { %>
@@ -57,17 +56,14 @@
         </section>
       </div>
       <%}%>
-
-     
      </div>
    </div>
    
    <div class="container products-wrapper">
      <div class="row">
        <div class="col-12">
-         <h2 class="products-title">Más Vendidos</h2>
+         <h2 class="products-title">Más Comentados</h2>
        </div>
-       <!-- Show the "ultimos" products -->
 
        <% for (const product of productos) { %>
         <div class="col-12 col-sm-6 col-lg-3">
