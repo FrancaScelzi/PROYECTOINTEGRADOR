@@ -17,14 +17,19 @@
         <div class="col-12">
           <h2 class="products-title">Resultados de <em>"<%= result %>"</em></h2>
         </div>
-        <!-- Show the "ultimos" products -->
-        <h2 style='color:red'><%= respuesta %> '<%= result %>'</h2>
-        <% for (const product of products) { %>
+
+        <% if (respuesta != '') { %>
+          <h2 style='color:red'><%= respuesta %> '<%= result %>'</h2>
+        <% } %>
+
+       
+        <% if (respuesta == "") { %>
+         <% for (const product of products) { %>
           <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
               <a href="/product/detail/<%= product.id %> ">
                 <figure class="product-box_image">
-                  <img src=<%=product.wine_image %> alt="">
+                  <img src= "/images/products/<%=product.wine_image %>" alt="">
                 </figure>
                 <article class="product-box_data">
                   <h2><%= product.wine_name %></h2>
@@ -36,6 +41,8 @@
             </section>
           </div>
         <%}%>
+        <% } %>
+        
       </div>
     </div>
 

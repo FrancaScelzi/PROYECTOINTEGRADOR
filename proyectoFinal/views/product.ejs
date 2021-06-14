@@ -26,6 +26,9 @@
 				<% } %>
 			</p>
 		</div>
+		<div>
+			<h3><a href="/users/<%= products.user.id %> "> Añadido por <%= products.user.name + ' ' + products.user.lastname%></a></h3>
+		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
@@ -58,8 +61,10 @@
 
 
 					</section>
-					<form class="form" action="/" method="GET">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+					<form class="form" action="/product/comment" method="POST">
+						<input name="comment" class="form-input" type="text" value="" placeholder="Agregar comentario">
+						<input name="idUser" type="hidden" value="<%= user.id  %> ">
+						<input name="idProduct" type="hidden" value="<%= products.id  %> ">
 						<button type="submit" class="btn-outline-dark"
 							onclick="alert('¡Tu comentario ha sido enviado con éxito!')">AGREGAR COMENTARIO</button>
 					</form>

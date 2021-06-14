@@ -75,7 +75,7 @@ let controller = {
         }
         //3)Guardar Vino
         db.Product.update(wine , {
-            where: { id: data.id}
+            where: { id: req.body.id}
         })
             .then(() => {
                 //4)Redirección
@@ -91,8 +91,11 @@ let controller = {
         let infoABuscar = req.query.search; //obtengo la info de la querystring.
 
         db.Product.findAll({
-                //SELECT * FROM movies
-                //WHERE title LIKE "%potter%"
+
+            include: [
+                {association: 'user'}
+            ],
+
                 where: {
                     [op.or]: [{
                             wine_name: {
@@ -184,6 +187,23 @@ let controller = {
                 console.log(error);
             })
     },
+    
+    createComment: function (req, res) {
+        let data = req.body;
+
+        let createComment = {
+            product_id: data.idProduct,
+            user_id: data.idUser,
+            texto_comentario: data.comment,
+        }
+
+        db.Comment.create(createComment)
+            .then(data => {
+                return res.redirect("/")
+            })
+
+    },
+
 
     destroy: function (req, res) {
 

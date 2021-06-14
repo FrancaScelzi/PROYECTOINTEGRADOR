@@ -27,6 +27,6 @@ router.post('/product-edit', upload.single('wineImage'), productController.editF
 router.get('/results', productController.search)
 router.get('/detail/:id?', productController.show)
 router.post('/delete/:id?', productController.destroy)
-
+router.post('/comment', productController.createComment)
 
 module.exports = router;

@@ -17,9 +17,9 @@ let registerController = {
             res.locals.errors = errors
             return res.render('register', {title: 'Registrate | The Union Winery'})
 
-        } else if (req.body.password == "") {
+        } else if (req.body.password == "" || req.body.password.length <= 3) {
 
-            errors.message = "La contraseña es obligatoria";
+            errors.message = "La contraseña es obligatoria y tiene que ser mayor a 3 caracteres";
             res.locals.errors = errors;
             return res.render('register', {title: 'Registrate | The Union Winery'})
 
