@@ -8,7 +8,6 @@ let users = require("../data/usersData")
 let controller = {
     profile: (req, res) => {
 
-
         db.User.findByPk(req.params.id, {
 
                 include: [{
@@ -29,10 +28,9 @@ let controller = {
 
     },
     edit: (req, res) => {
+
         // Mostrar el formulario de edición
-
         let userId = req.params.id;
-
 
         // Evitar que el usuario cambie el id en la url
         if (userId != req.session.user.id) {

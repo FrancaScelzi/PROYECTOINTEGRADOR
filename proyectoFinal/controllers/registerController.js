@@ -12,6 +12,8 @@ let registerController = {
         let creada = {}
         let errors = {}
 
+        // Validaciones en el registro del usuario
+
         if (req.body.email == "") {
             errors.message = "El email es obligatorio"
             res.locals.errors = errors
@@ -49,6 +51,8 @@ let registerController = {
                         }
                         creada.message = 'Tu cuenta fue creada con exito'
                         res.locals.creada = creada
+                        
+                        // Guardar un usuario en la db
 
                         users.create(user)
                             .then(user => {
@@ -59,7 +63,6 @@ let registerController = {
                             });
                     }
                 })
-            // Guardar un usuario en la db
             .catch( error => { console.log(error) })
 
 

@@ -15,19 +15,16 @@ let controller = {
                         include: {
                             association: 'user'
                         }
-                    }, //relacion comentario producto
-                    // {association: 'userComment'}, // relacion comentario usuario
+                    }, // Relación comentario producto y relación comentario usuario
                     {
                         association: 'user'
-                    }, // relacion producto comentario
+                    }, // Relación producto usuario
 
                 ],
                 order: [['comment','id','desc']], //Acá le decimos que queremos que los comentarios vengan ordenados por id descendente. Podemos ordenar por cualquiera de las columnas de la tabla.
             })
             .then(data => {
-                console.log(data);
-
-                // return res.send(data)
+                console.log(data)
 
                 return res.render('product', {
                     products: data,
@@ -58,7 +55,6 @@ let controller = {
             })
     },
 
-
     editForm: (req, res) => {
 
         let data = req.body;
@@ -82,17 +78,14 @@ let controller = {
 
             }
         }
-        //2)Crear vino nueva.
-
-        //3)Guardar Vino
-
+        // Actualizando los datos del vino | Datos del vino luego de la edición de campos
         db.Product.update(wine, {
                 where: {
                     id: req.body.id
                 }
             })
             .then(function (productUpdated) {
-                //4)Redirección
+                // 4) Redirección
                 console.log(productUpdated)
 
                 return res.redirect('/')
@@ -104,7 +97,7 @@ let controller = {
 
     search: (req, res) => {
 
-        let infoABuscar = req.query.search; //obtengo la info de la querystring.
+        let infoABuscar = req.query.search; // Obtengo la info de la querystring.
 
         db.Product.findAll({
 
@@ -157,11 +150,8 @@ let controller = {
 
     },
 
-
-
-
     create: (req, res) => {
-        //Renderizar la vista de Product Add
+        // Renderizar la vista de Product Add
 
         return res.render('product-add', {
             title: 'Editar | The Union Winery',
@@ -174,15 +164,12 @@ let controller = {
     },
 
     store: function (req, res) {
-
-
-
-        //Método para guardar nuevo Vino.
+        // Método para guardar nuevo Vino.
         //1) Obtener datos del formulario
 
         let data = req.body;
 
-        //2)Crear vino nueva.
+        //2) Crear vino nuevo.
         let wine = {
             wine_name: data.wineName,
             wine_type: data.wineType,
@@ -193,7 +180,7 @@ let controller = {
             user_id: res.locals.user.id
 
         }
-        //3)Guardar Vino
+        //3) Guardar Vino
         db.Product.create(wine)
             .then((wineCreado) => {
                 //4)Redirección
@@ -219,7 +206,6 @@ let controller = {
             })
 
     },
-
 
     destroy: function (req, res) {
 

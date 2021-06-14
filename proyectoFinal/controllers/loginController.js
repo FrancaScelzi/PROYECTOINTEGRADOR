@@ -34,8 +34,6 @@ let loginController = {
                 return res.render('login', {title: 'Login | The Union Winery'})
             } else {
                 req.session.user = user;
-
-                // return res.send(req.session.user)
                 
                 if(req.body.rememberme != undefined){
                     res.cookie('userId', user.id, { maxAge: 1000 * 60 * 5})
@@ -51,13 +49,13 @@ let loginController = {
     },
 
     logout: function(req,res){
-        //Destruir la sessión
-            req.session.destroy();
+        // Destruir la sessión
+        req.session.destroy();
 
-        //Destruir la cookie
-         res.clearCookie('userId');
+        // Destruir la cookie
+        res.clearCookie('userId');
         
-        //redireccionar a hone
+        // Redireccionar a hone
         return res.redirect('/')
     }
     
