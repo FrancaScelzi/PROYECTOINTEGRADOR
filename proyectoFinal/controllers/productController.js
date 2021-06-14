@@ -21,7 +21,8 @@ let controller = {
                         association: 'user'
                     }, // relacion producto comentario
 
-                ]
+                ],
+                order: [['comment','id','desc']], //Acá le decimos que queremos que los comentarios vengan ordenados por id descendente. Podemos ordenar por cualquiera de las columnas de la tabla.
             })
             .then(data => {
                 console.log(data);
@@ -46,7 +47,7 @@ let controller = {
         db.Product.findByPk(req.params.id)
             .then((data) => {
                 if (req.session.user.id != data.user_id) {
-                    res.redirect('/users/'+ req.session.user.id)
+                    res.redirect('/users/' + req.session.user.id)
                 }
                 return res.render('product-edit', {
                     title: 'Editar | The Union Winery',
@@ -61,25 +62,39 @@ let controller = {
     editForm: (req, res) => {
 
         let data = req.body;
+        if (req.file != undefined) {
+            var wine = {
+                wine_name: data.wineName,
+                wine_type: data.wineType,
+                wine_description: data.wineDescription,
+                wine_variety: data.wineVariety,
+                wine_year: data.wineYear,
+                wine_image: req.file.filename,
 
-        //2)Crear vino nueva.
-        let wine = {
-            wineName: data.wineName,
-            wineType: data.rating,
-            wineDescription: data.wineDescription,
-            wineVariety: data.wineVariety,
-            wineYear: data.wineYear,
-            wineImage: data.wineImage
+            }
+        } else {
+            var wine = {
+                wine_name: data.wineName,
+                wine_type: data.wineType,
+                wine_description: data.wineDescription,
+                wine_variety: data.wineVariety,
+                wine_year: data.wineYear,
 
+            }
         }
+        //2)Crear vino nueva.
+
         //3)Guardar Vino
-        db.Product.update(wine , {
-            where: { id: data.id}
-        })
-            .then(function(productUpdated){
+
+        db.Product.update(wine, {
+                where: {
+                    id: req.body.id
+                }
+            })
+            .then(function (productUpdated) {
                 //4)Redirección
                 console.log(productUpdated)
-                
+
                 return res.redirect('/')
             })
             .catch(error => {
@@ -93,9 +108,9 @@ let controller = {
 
         db.Product.findAll({
 
-            include: [
-                {association: 'user'}
-            ],
+                include: [{
+                    association: 'user'
+                }],
 
                 where: {
                     [op.or]: [{
@@ -159,9 +174,9 @@ let controller = {
     },
 
     store: function (req, res) {
-       
-       
-       
+
+
+
         //Método para guardar nuevo Vino.
         //1) Obtener datos del formulario
 
@@ -188,7 +203,7 @@ let controller = {
                 console.log(error);
             })
     },
-    
+
     createComment: function (req, res) {
         let data = req.body;
 
