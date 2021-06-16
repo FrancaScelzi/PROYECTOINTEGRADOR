@@ -193,25 +193,30 @@ let controller = {
 
     createComment: function (req, res) {
         let data = req.body;
+        let errors ={}
 
-        let createComment = {
-            product_id: data.idProduct,
-            user_id: data.idUser,
-            texto_comentario: data.comment,
-        }
-
-        db.Comment.create(createComment)
-            .then(data => {
-                return res.redirect("/")
-            })
-
+        if(req.session.user != undefined){
+            let createComment = {
+                product_id: data.idProduct,
+                user_id: data.idUser,
+                texto_comentario: data.comment,
+            }
+    
+            db.Comment.create(createComment)
+                .then(data => {
+                    return res.redirect("/")
+                })
+    
+        } else {
+            errors.message = 'Para ingresar un comentario debe iniciar sesión'
+            res.locals.errors = errors
+            return res.render('login', {title: 'Login | The Union Winery'});
+        }   
     },
 
     destroy: function (req, res) {
 
         let vinoBorrar = req.params.id;
-
-
         db.Product.destroy({
                 where: [{
                     id: vinoBorrar

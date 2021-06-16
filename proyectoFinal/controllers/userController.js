@@ -41,7 +41,7 @@ let controller = {
             db.User.findByPk(userId)
                 .then(function (user) {
                     return res.render('profile-edit', {
-                        userEdit: user,
+                        user: user,
                         title: 'Editar Perfil | The Union Winery'
                     })
                 })
