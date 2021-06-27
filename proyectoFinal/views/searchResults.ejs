@@ -14,6 +14,12 @@
 
     <div class="container products-wrapper">
       <div class="row">
+        <% if( user.log ){ %>
+          <div class="col-12">
+            <h2 class="products-title text-center">Bienvenid@ <%= user.name %> </h2>
+          </div>
+        
+        <%}%>   
         <div class="col-12">
           <h2 class="products-title">Resultados de <em>"<%= result %>"</em></h2>
         </div>
@@ -35,7 +41,7 @@
                   <h2><%= product.wine_name %></h2>
                   <p><%= product.wine_type %> - <%= product.wine_variety %></p>
                   <p><%= product.wine_year %> </p>
-                  <p><a href='/users/<%= product.user.id %> '>Añadido por <%= product.user.name + ' ' + product.user.lastname%> </a></p>
+                  <p><a style="text-decoration-line: underline !important;" href='/users/<%= product.user.id %> '>Añadido por <%= product.user.name + ' ' + product.user.lastname%> </a></p>
                 </article>
               </a>
             </section>

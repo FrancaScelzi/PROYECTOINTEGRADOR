@@ -21,7 +21,9 @@ let controller = {
                     }, // Relación producto usuario
 
                 ],
-                order: [['comment','id','desc']], //Acá le decimos que queremos que los comentarios vengan ordenados por id descendente. Podemos ordenar por cualquiera de las columnas de la tabla.
+                order: [
+                    ['comment', 'id', 'desc']
+                ], //Acá le decimos que queremos que los comentarios vengan ordenados por id descendente. Podemos ordenar por cualquiera de las columnas de la tabla.
             })
             .then(data => {
                 console.log(data)
@@ -121,6 +123,11 @@ let controller = {
                                 [op.like]: '%' + infoABuscar + '%'
                             }
                         },
+                        {
+                            wine_variety: {
+                                [op.like]: '%' + infoABuscar + '%'
+                            }
+                        },
                     ]
                 },
 
@@ -152,16 +159,15 @@ let controller = {
 
     create: (req, res) => {
         // Renderizar la vista de Product Add
+        if (req.session.user != undefined) {
 
-        return res.render('product-add', {
-            title: 'Editar | The Union Winery',
-            products: products,
-            id: req.params.id,
-            users: users
-        });
-
-
-    },
+            return res.render('product-add', {
+                title: 'Agregar | The Union Winery',
+            });
+        } else {
+        res.redirect('/')
+    }
+},
 
     store: function (req, res) {
         // Método para guardar nuevo Vino.
@@ -193,25 +199,27 @@ let controller = {
 
     createComment: function (req, res) {
         let data = req.body;
-        let errors ={}
+        let errors = {}
 
-        if(req.session.user != undefined){
+        if (req.session.user != undefined) {
             let createComment = {
                 product_id: data.idProduct,
                 user_id: data.idUser,
                 texto_comentario: data.comment,
             }
-    
+
             db.Comment.create(createComment)
                 .then(data => {
                     return res.redirect("/")
                 })
-    
+
         } else {
             errors.message = 'Para ingresar un comentario debe iniciar sesión'
             res.locals.errors = errors
-            return res.render('login', {title: 'Login | The Union Winery'});
-        }   
+            return res.render('login', {
+                title: 'Login | The Union Winery'
+            });
+        }
     },
 
     destroy: function (req, res) {

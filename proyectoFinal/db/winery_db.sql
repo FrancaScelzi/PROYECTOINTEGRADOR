@@ -1,5 +1,6 @@
+
 CREATE SCHEMA winery_db;
-   
+USE winery_db;
 CREATE TABLE users (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 name VARCHAR(100) ,
@@ -38,7 +39,7 @@ created_at DATE,
 updated_at DATE,
 
 FOREIGN KEY (user_id) REFERENCES users(id),
-FOREIGN KEY (product_id) REFERENCES products(id)
+FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 );
 
 

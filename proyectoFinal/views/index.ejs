@@ -35,7 +35,14 @@
 
   <div class="container products-wrapper">
     <div class="row">
+      <% if( user.log ){ %>
       <div class="col-12">
+        <h2 class="products-title text-center">Bienvenid@ <%= user.name %> </h2>
+      </div>
+
+      <%}%>   
+      <div class="col-12">
+
         <h2 class="products-title">Novedades</h2>
       </div>
 
@@ -44,13 +51,15 @@
         <section class="product-box">
           <a href="/product/detail/<%= product.id %> ">
             <figure class="product-box_image">
-              <img src= "/images/products/<%=product.wine_image %>" alt="">
+              <img src="/images/products/<%=product.wine_image %>" alt="">
             </figure>
             <article class="product-box_data">
               <h2><%= product.wine_name %></h2>
               <p><%= product.wine_type %> - <%= product.wine_variety %></p>
               <p><%= product.wine_year %> </p>
-              <p><a href='/users/<%= product.user.id %> '>Añadido por <%= product.user.name + ' ' + product.user.lastname%> </a></p>
+              <p><a style="text-decoration-line: underline !important;" href='/users/<%= product.user.id %> '>Añadido por <%= product.user.name + ' ' + product.user.lastname%> </a></p>
+
+
             </article>
           </a>
         </section>
@@ -66,22 +75,23 @@
        </div>
 
        <% for (const product of productos) { %>
-        <div class="col-12 col-sm-6 col-lg-3">
-          <section class="product-box">
-            <a href="/product/detail/<%= product.id %> ">
-              <figure class="product-box_image">
-                <img src= "/images/products/<%=product.wine_image %>" alt="">
-              </figure>
-              <article class="product-box_data">
-                <h2><%= product.wine_name %></h2>
-                <p><%= product.wine_type %> - <%= product.wine_variety %></p>
-                <p><%= product.wine_year %> </p>
-                <p><a href='/users/<%= product.user.id %> '>Añadido por <%= product.user.name + ' ' + product.user.lastname%> </a></p>
-              </article>
-            </a>
-          </section>
-        </div>
-        <%}%>
+      <div class="col-12 col-sm-6 col-lg-3">
+        <section class="product-box">
+          <a href="/product/detail/<%= product.id %> ">
+            <figure class="product-box_image">
+              <img src="/images/products/<%=product.wine_image %>" alt="">
+            </figure>
+            <article class="product-box_data">
+              <h2><%= product.wine_name %></h2>
+              <p><%= product.wine_type %> - <%= product.wine_variety %></p>
+              <p><%= product.wine_year %> </p>
+              <p><a style="text-decoration-line: underline !important;" href='/users/<%= product.user.id %> '>Añadido por
+                  <%= product.user.name + ' ' + product.user.lastname%> </a></p>
+            </article>
+          </a>
+        </section>
+      </div>
+      <%}%>
 
 
      </div>

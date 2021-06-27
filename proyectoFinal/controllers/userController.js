@@ -1,4 +1,5 @@
 let products = require("../data/productsData")
+const bcrypt = require('bcryptjs');
 
 const db = require('../database/models')
 
@@ -12,7 +13,8 @@ let controller = {
 
                 include: [{
                     association: 'products'
-                }]
+                },
+           ]
             })
             .then(user => {
                 // res.send(user)
@@ -33,15 +35,17 @@ let controller = {
         let userId = req.params.id;
 
         // Evitar que el usuario cambie el id en la url
-        if (userId != req.session.user.id) {
+        if (req.session.user && userId != req.session.user.id) {
             // Redireccionar a la ruta del usuario logueado
-            return res.redirect(`/users/edit/${req.session.user.id}`)
+            return res.redirect(`/users/${req.session.user.id}`)
+        }else if (!req.session.user) {
+            return res.redirect('/')
         } else {
             // Recuperar los datos del usuario y pasarlo al form de edición
             db.User.findByPk(userId)
                 .then(function (user) {
                     return res.render('profile-edit', {
-                        user: user,
+                        usuario: user,
                         title: 'Editar Perfil | The Union Winery'
                     })
                 })
@@ -55,37 +59,36 @@ let controller = {
 
     update: function (req, res) {
         // Vamos a actualizar un usuario
+        console.log(req.session.user);
 
         let user = {
             username: req.body.username,
-            userImage: '',
-            email: req.body.email,
+            img: '',
             password: '',
         }
 
         // Tenemos que pensar cómo completar password y avatar
-        if (req.body.password == '') {
-            user.paswword = req.session.user.password;
+        if (!req.body.password) {
+            user.password = req.session.user.password;
         } else {
             user.password = bcrypt.hashSync(req.body.password, 10);
         }
-        if (req.file == undefined) {
-            user.UserImage = req.session.user.userImage;
+        if (!req.file) {
+            user.img = req.session.user.img;
         } else {
-            user.imagen = req.file.filename;
+            user.img = req.file.filename;
         }
 
         db.User.update(user, {
                 where: {
-                    id: req.session.user.id
+                    id: req.body.id
                 }
             })
 
-            .then(function (id) {
+            .then(function () {
                 // Actualizar los datos de session y redirecciona a la home
-                user.id = req.session.user.id;
-                req.session.user = user;
-                return res.redirect('/')
+                
+                return res.redirect('/users/'+req.body.id)
             })
 
             .catch(e => {

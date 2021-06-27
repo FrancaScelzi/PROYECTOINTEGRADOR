@@ -4,10 +4,25 @@
 
 <%- include('./partials/head') %>
 
-<body>
-	<%- include('./partials/headerLogueado') %>
+<body>	
+	<% if( user.log ){ %>
+			<%- include('./partials/headerLogueado.ejs') %>
+			<%} else { %>
+			<%- include('./partials/header.ejs') %>
+
+			<% } %>
 	<div class="container products-wrapper">
 		<div class="row">
+
+		
+
+		 
+			<% if( user.log ){ %>
+			<div class="col-12">
+				<h2 class="products-title text-center">Bienvenid@ <%= user.name %> </h2>
+			</div>
+
+			<%}%>   
 			<div class="col-12">
 				<h2 class="products-title">Agregar Producto</h2>
 			</div>
@@ -37,7 +52,7 @@
 
 	<!-- footer -->
 	<%- include('partials/footer') %>
-	<!-- /footer -->
+			<!-- /footer -->
 
 </body>
 

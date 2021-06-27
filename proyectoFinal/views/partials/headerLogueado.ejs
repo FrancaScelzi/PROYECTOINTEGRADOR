@@ -10,7 +10,7 @@
 				<div class="col-7 col-md-6 float-end ms-auto search-bar">
 					<form action="/product/results" method="GET" class="search-form">
 						<input type="text" name="search" placeholder="Buscar productos, marcas y más"
-							class="search-form_input">
+							class="search-form_input" required>
 						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
 					</form>
 				</div>
@@ -28,6 +28,7 @@
 				
 				<ul class="right-navbar">
 					<li><a href="/users/<%=user.id%>">
+						
 						<%= user.name %>
 						<%= user.lastname %>
 						 <i class="fas fa-user"></i>

@@ -11,7 +11,12 @@
 	  
 		<% } %>
 	
-
+		<% if( user.log ){ %>
+			<div class="col-12">
+			  <h2 class="products-title text-center">Bienvenid@ <%= user.name %> </h2>
+			</div>
+		  
+		  <%}%>   
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">

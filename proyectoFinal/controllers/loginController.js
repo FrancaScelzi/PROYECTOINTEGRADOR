@@ -25,7 +25,7 @@ let loginController = {
 
             // ¿Está el mail en la base de datos?
             if (user == null){
-                errors.message = 'El email no existe'
+                errors.message = 'El email es incorrecto'
                 res.locals.errors = errors
                 return res.render('login', {title: 'Login | The Union Winery'});
             } else if (bcrypt.compareSync(req.body.password, user.password) == false) {
@@ -36,7 +36,7 @@ let loginController = {
                 req.session.user = user;
                 
                 if(req.body.rememberme != undefined){
-                    res.cookie('userId', user.id, { maxAge: 1000 * 60 * 5})
+                    res.cookie('userId', user.id, { maxAge: 1000 * 60 * 100})
                 }
            
                 // Si tildó recordame => creamos la cookie.

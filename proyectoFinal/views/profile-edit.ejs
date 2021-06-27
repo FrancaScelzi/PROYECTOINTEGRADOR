@@ -5,9 +5,14 @@
 
 
 <body>
-	<!-- Header -->
-	<%- include('./partials/headerLogueado') %>
 
+	<% if( user.log ){ %>
+		<%- include('./partials/headerLogueado.ejs') %>
+		<%} else { %>
+		<%- include('./partials/header.ejs') %>
+	  
+		<% } %>
+	
 	<!-- /Header -->
 
 	<div class="container products-wrapper">
@@ -15,22 +20,27 @@
 			<div class="col-2">
 				<h2 class="products-title">Edita tu perfil</h2>
 			</div>
+			<% if( user.log ){ %>
+				<div class="col-12">
+				  <h2 class="products-title text-center">Bienvenid@ <%= user.name %> </h2>
+				</div>
+			  
+			  <%}%>   
 		</div>
 	</div>
 
 	<div class="container">
 		<div class="row justify-content-md-center">
-			<form class="register-form col-6" action="/" method="POST" enctype="multipart/form-data" >
+			<form class="register-form col-6" action="/users/edit" method="POST" enctype="multipart/form-data" >
 
-
+				<input type="hidden" name="id" value="<%= usuario.id %> ">
 				<label for="">Username:</label>
-				<input type="text" name="username" placeholder="" value="<%= user.username %>">
+				<input type="text" name="username" placeholder="" value="<%= usuario.username %>">
 				<label for="">Foto de Perfil:</label>
 				<input type="file" name="userImage" placeholder="">
 				<label for="Contraseña:">Contraseña:</label>
 				<input type="password" name="password" placeholder="">
-				<button type="submit" class="btn btn-dark btn-lg"
-					onclick="alert('¡Tu perfil ha sido editado con éxito!')">Editar mi perfil</button>
+				<button type="submit" class="btn btn-dark btn-lg">Editar mi perfil</button>
 			</form>
 		</div>
 	</div>
