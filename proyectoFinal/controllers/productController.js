@@ -1,5 +1,4 @@
 let products = require('../data/productsData');
-let users = require('../data/usersData');
 
 const db = require('../database/models')
 
@@ -26,11 +25,11 @@ let controller = {
                 ], //Acá le decimos que queremos que los comentarios vengan ordenados por id descendente. Podemos ordenar por cualquiera de las columnas de la tabla.
             })
             .then(data => {
-                console.log(data)
-
+                if (!data) {
+                    res.redirect('/')
+                }
                 return res.render('product', {
                     products: data,
-                    users: users,
                     title: 'Productos | The Union Winery'
                 });
             })
@@ -42,10 +41,12 @@ let controller = {
 
     edit: (req, res) => {
 
-
         db.Product.findByPk(req.params.id)
             .then((data) => {
-                if (req.session.user.id != data.user_id) {
+
+                if (!data) {
+                    res.redirect('/')
+                } else if (req.session.user.id != data.user_id) {
                     res.redirect('/users/' + req.session.user.id)
                 }
                 return res.render('product-edit', {
@@ -165,9 +166,9 @@ let controller = {
                 title: 'Agregar | The Union Winery',
             });
         } else {
-        res.redirect('/')
-    }
-},
+            res.redirect('/')
+        }
+    },
 
     store: function (req, res) {
         // Método para guardar nuevo Vino.
@@ -183,6 +184,7 @@ let controller = {
             wine_variety: data.wineVariety,
             wine_year: data.wineYear,
             wine_image: req.file.filename,
+            wine_comments: 0,
             user_id: res.locals.user.id
 
         }
@@ -202,6 +204,7 @@ let controller = {
         let errors = {}
 
         if (req.session.user != undefined) {
+
             let createComment = {
                 product_id: data.idProduct,
                 user_id: data.idUser,
@@ -210,9 +213,10 @@ let controller = {
 
             db.Comment.create(createComment)
                 .then(data => {
-                    return res.redirect("/")
-                })
+                    
+                    return res.redirect("/product/detail/"+createComment.product_id)
 
+                })
         } else {
             errors.message = 'Para ingresar un comentario debe iniciar sesión'
             res.locals.errors = errors
@@ -232,6 +236,21 @@ let controller = {
             })
             .then(() => {
                 return res.redirect('/');
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    },
+    destroyComment: function (req, res) {
+
+        let comentarioId = req.params.id;
+        db.Comment.destroy({
+                where: [{
+                    id: comentarioId
+                }]
+            })
+            .then(() => {
+                return res.redirect('/product/detail/'+req.body.idProduct);
             })
             .catch(error => {
                 console.log(error);

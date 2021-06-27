@@ -1,28 +1,28 @@
-module.exports = function(sequelize, dataTypes){
+module.exports = function (sequelize, dataTypes) {
 
     // Definir un alias.
     let alias = 'Product'; // Con este alias sequelize va a identificar internamente al archivo de modelo.
 
     // Describir la configuración de las columnas de la tabla
     let cols = {
-        id:{
+        id: {
             autoIncrement: true,
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
-        user_id:{
+        user_id: {
             type: dataTypes.INTEGER,
         },
-        wine_name:{
+        wine_name: {
             type: dataTypes.STRING,
         },
-        wine_type:{
+        wine_type: {
             type: dataTypes.STRING,
         },
-        wine_description:{
+        wine_description: {
             type: dataTypes.STRING,
         },
-        wine_variety:{
+        wine_variety: {
             type: dataTypes.STRING,
         },
         wine_year: {
@@ -31,34 +31,34 @@ module.exports = function(sequelize, dataTypes){
         wine_image: {
             type: dataTypes.STRING,
         },
-        created_at:{
+        created_at: {
             type: dataTypes.DATE,
         },
-        updated_at:{
+        updated_at: {
             type: dataTypes.DATE,
         }
-        
+
     }
 
     let config = {
-        tableName: 'products', 
+        tableName: 'products',
         timestamps: true, // Si la tabla no tiene los campos created_at y updated_at
         underscored: true, // Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.        
     }
 
-   const Product = sequelize.define(alias, cols, config);
+    const Product = sequelize.define(alias, cols, config);
 
-   Product.associate = function(models){
-       Product.belongsTo(models.User, {
-           as: 'user',
-           foreignKey: 'user_id',
-       })
+    Product.associate = function (models) {
+        Product.belongsTo(models.User, {
+            as: 'user',
+            foreignKey: 'user_id',
+        })
 
-   Product.hasMany(models.Comment, {
-       as: 'comment',
-       foreignKey: 'product_id'
-   })
-   };
-   
-   return Product;
+        Product.hasMany(models.Comment, {
+            as: 'comment',
+            foreignKey: 'product_id'
+        })
+    };
+
+    return Product;
 }

@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session'); //Instalamos session.
-
+const db = require('./database/models');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -58,10 +58,7 @@ app.use(function (req, res, next) {
 
     db.User.findByPk(idDeLaCookie)
       .then(user => {
-        console.log('en cookie middleware trasladando');
         req.session.user = user; //Estamos poniendo en session a toda la instancia del modelo. Debería ser solo user.dataValues.
-        console.log('en cookie middleware');
-        console.log(req.session.user);
         res.locals.user = user; // Se corrije si usamos user.dataValues
         return next();
       })

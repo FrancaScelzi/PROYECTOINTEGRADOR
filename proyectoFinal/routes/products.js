@@ -28,5 +28,5 @@ router.get('/results', productController.search)
 router.get('/detail/:id?', productController.show)
 router.post('/delete/:id?', productController.destroy)
 router.post('/comment', productController.createComment)
-
+router.post('/comment/delete/:id?', productController.destroyComment)
 module.exports = router;

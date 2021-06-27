@@ -13,10 +13,15 @@ let controller = {
 
                 include: [{
                     association: 'products'
-                },
+                },{
+                    association: 'comments'
+                }
            ]
             })
             .then(user => {
+                if (!user) {
+                    res.redirect('/')
+                }
                 // res.send(user)
                 res.render('profile', {
                     title: 'Perfil | The Union Winery',
