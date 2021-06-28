@@ -134,6 +134,7 @@ let controller = {
                                 [op.like]: '%' + infoABuscar + '%'
                             }
                         },
+                        
                     ]
                 },
 
