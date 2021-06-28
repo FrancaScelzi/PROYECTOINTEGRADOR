@@ -1,4 +1,3 @@
-let products = require('../data/productsData');
 
 const db = require('../database/models')
 

@@ -88,8 +88,8 @@
               <p><%= product.wine_type %> - <%= product.wine_variety %></p>
               <p><%= product.wine_year %> </p>
               <p>Cantidad de comentarios: <%= product.comment.length %> </p>
-              <p><a style="text-decoration-line: underline !important;" href='/users/<%= product.user.id %> '>Añadido por
-                  <%= product.user.name + ' ' + product.user.lastname%> </a></p>
+              <a style="text-decoration-line: underline !important; font-size: 15px;" href='/users/<%= product.user.id %> '>Añadido por <%= product.user.name + ' ' + product.user.lastname%> </a>
+
             </article>
           </a>
         </section>
