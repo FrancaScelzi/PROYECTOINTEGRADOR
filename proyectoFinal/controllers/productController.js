@@ -104,9 +104,14 @@ let controller = {
 
         db.Product.findAll({
 
-                include: [{
+            include: [{
+                association: 'user'
+            }, {
+                association: 'comment',
+                include: {
                     association: 'user'
-                }],
+                }
+            }],
 
                 where: {
                     [op.or]: [{
@@ -213,8 +218,19 @@ let controller = {
 
             db.Comment.create(createComment)
                 .then(data => {
-                    
-                    return res.redirect("/product/detail/"+createComment.product_id)
+
+
+                    db.Product.findByPk(data.product_id)
+                        .then(result => {
+                            result.wine_comments += 1;
+                            result.save()
+                                .then(info => {
+
+                                    return res.redirect("/product/detail/" + createComment.product_id)
+                                })
+                            
+                        })
+
 
                 })
         } else {
@@ -234,8 +250,12 @@ let controller = {
                     id: vinoBorrar
                 }]
             })
-            .then(() => {
+            .then((data) => {
+
+               
+                
                 return res.redirect('/');
+
             })
             .catch(error => {
                 console.log(error);
@@ -250,7 +270,15 @@ let controller = {
                 }]
             })
             .then(() => {
-                return res.redirect('/product/detail/'+req.body.idProduct);
+                db.Product.findByPk(req.body.idProduct)
+                .then(result => {
+                    result.wine_comments -= 1
+                    result.save()
+                    .then(info=>{
+
+                        return res.redirect('/product/detail/' + req.body.idProduct);
+                    })
+                })
             })
             .catch(error => {
                 console.log(error);

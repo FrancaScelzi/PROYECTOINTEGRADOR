@@ -31,6 +31,9 @@ module.exports = function (sequelize, dataTypes) {
         wine_image: {
             type: dataTypes.STRING,
         },
+        wine_comments:{
+            type:dataTypes.INTEGER
+        },
         created_at: {
             type: dataTypes.DATE,
         },
