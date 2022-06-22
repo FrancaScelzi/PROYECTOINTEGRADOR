@@ -77,7 +77,7 @@ let controller = {
                 wine_description: data.wineDescription,
                 wine_variety: data.wineVariety,
                 wine_year: data.wineYear,
-
+                updated_at:Date.now()
             }
         }
         // Actualizando los datos del vino | Datos del vino luego de la edición de campos
